@@ -6,6 +6,7 @@ import { SiCss3, SiFramer } from "react-icons/si";
 import TestimonialTooltip from "@/app/TestimonialTooltip/page";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 function page() {
   return (
@@ -27,16 +28,16 @@ function page() {
         <div>
           <div className="bg-[#1C1C1C] min-w-min rounded-2xl p-4 border border-neutral-800 h-fit">
             <h2 className="font-RubikBold text-neutral-200">
-              90+ Framer Shadows
+              My Resume
             </h2>
             <p className="text-xs my-3 text-neutral-400 font-RubikRegular">
-              Stop worrying about perfecting <br /> the shadows, just Copy &
-              Paste <br />
-              from the 80+ Shadows collection
+              Curious about my experiences and skills and would like to know more?
             </p>
-            <button className="bg-[#696969] h-7 p-1 rounded-md text-xs w-full font-RubikMedium text-neutral-50 ">
-              Download
-            </button>
+            <a download={true} href="OSEMEKE JESSE-PAUL RESUME 24th July, 2024.pdf">
+              <button className="bg-[#696969] h-7 p-1 rounded-md text-xs w-full font-RubikMedium text-neutral-50 ">
+                Download
+              </button>
+            </a>
 
             <div className="border border-neutral-700 my-5" />
 
@@ -74,7 +75,7 @@ function page() {
           </div>
         </div>
 
-        <div className="bg-[#1C1C1C] min-w-min rounded-2xl p-4 border border-neutral-800 mt-3 text-neutral-50">
+        {/* <div className="bg-[#1C1C1C] min-w-min rounded-2xl p-4 border border-neutral-800 mt-3 text-neutral-50">
           <Image
             width={1000}
             height={1000}
@@ -86,7 +87,7 @@ function page() {
           <button className="bg-[#696969] h-7 p-1 rounded-md text-xs w-full font-RubikMedium ">
             Get Now @20% OFF
           </button>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

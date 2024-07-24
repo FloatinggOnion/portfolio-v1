@@ -5,6 +5,8 @@ import {
   PiInstagramLogoThin,
   PiYoutubeLogoThin,
   PiLinkedinLogoThin,
+  PiTwitterLogoThin,
+  PiGithubLogoThin
 } from "react-icons/pi";
 import { SlFeed } from "react-icons/sl";
 import { LuBox } from "react-icons/lu";
@@ -18,7 +20,7 @@ import {
 } from "framer-motion";
 
 function TestimonialTooltip() {
-  const [hoveredIndex, setHoveredIndex] = useState();
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const springConfig = { stiffness: 100, damping: 5 };
 
@@ -38,32 +40,32 @@ function TestimonialTooltip() {
   const people = [
     {
       id: 1,
-      name: "Our Feeds",
-      position: "www.feed.com",
-      image: <SlFeed />,
+      name: "GitHub",
+      position: "www.github.com/floatinggonion",
+      image: <PiGithubLogoThin />,
     },
     {
       id: 2,
-      name: "Instagram",
-      position: "www.feed.com",
-      image: <PiInstagramLogoThin />,
+      name: "X",
+      position: "www.x.com/floatinggonion",
+      image: <PiTwitterLogoThin />,
     },
     {
       id: 3,
       name: "Instagram",
-      position: "www.instagram.com",
-      image: <LuBox />,
+      position: "www.instagram.com/floatinggonion",
+      image: <PiInstagramLogoThin />,
     },
+    // {
+    //   id: 4,
+    //   name: "Youtube",
+    //   position: "www.youtube.com/joscript",
+    //   image: <PiYoutubeLogoThin />,
+    // },
     {
       id: 4,
-      name: "Youtube",
-      position: "www.youtube.com/joscript",
-      image: <PiYoutubeLogoThin />,
-    },
-    {
-      id: 5,
       name: "LinkedIn",
-      position: "www.Linkedin.com/joscript",
+      position: "www.Linkedin.com/in/jp-osemeke",
       image: <PiLinkedinLogoThin />,
     },
   ];

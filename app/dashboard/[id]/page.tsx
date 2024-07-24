@@ -60,14 +60,14 @@ function page() {
           transition={{ delay: 0.4 }}
           className="text-3xl font-RubikExtraBold text-center "
         >
-          How to write type-safe CSS Modules
+          How To Write Type-Safe CSS Modules
         </motion.h1>
         <div className="flex items-center gap-x-2 justify-center my-4 font-RubikRegular">
           <p className="bg-[#282828] w-fit text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[10px] ">
             TypeScript
           </p>
           <div className="w-1 h-1 rounded-full bg-neutral-400" />
-          <span className="text-xs">Sunday, July 22, 2023</span>
+          <span className="text-xs">March 22, 2024</span>
         </div>
 
         <div className="my-11 font-RubikMedium">
@@ -88,7 +88,7 @@ function page() {
           </p>
 
           <p className="my-7">
-            With TypeScript, it’s easy to type our application’s business logic
+            With TypeScript, it&apos;s easy to type our application&apos;s business logic
             and control flows, but what if we could make our CSS classes safe
             too? Having the correct CSS class names in place ensures that the
             intended styles are applied to a given component, preventing the
@@ -96,9 +96,9 @@ function page() {
           </p>
 
           <p className="my-7">
-            In this article, we’ll discuss what CSS Modules are, explore their
+            In this article, we&apos;ll discuss what CSS Modules are, explore their
             developer experience shortcomings, and learn how to address them by
-            using automation with TypeScript. Let’s get started!
+            using automation with TypeScript. Let&apos;s get started!
           </p>
 
           <div className="my-9">
@@ -118,7 +118,7 @@ function page() {
           <p className="my-4">
             CSS Modules provide an approach to writing modular and scoped CSS
             styles in modern web apps. These styles are specific to your
-            application’s particular component or module. You can write CSS
+            application&apos;s particular component or module. You can write CSS
             Modules by using regular CSS.
           </p>
 
@@ -138,7 +138,7 @@ function page() {
             If you want to use CSS Modules in your next TypeScript app, you have
             several options. Modern build tools like Vite and Snowpack support
             CSS Modules out of the box, but you may need to include some minor
-            configurations if you’re using webpack. Once the build setup is
+            configurations if you&apos;re using webpack. Once the build setup is
             done, you can add CSS files with the module.css extension following
             the CSS Modules convention:
           </p>
@@ -149,12 +149,12 @@ function page() {
 
           <p>
             CSS Modules are a great tool, but since class names are generated at
-            runtime and change between builds, it’s hard to use them in a
+            runtime and change between builds, it&apos;s hard to use them in a
             type-safe way. You could manually create types for each CSS Module
             using TypeScript definition files, but updating them is tedious.
-            Let’s suppose that a class name is added or removed from the CSS
+            Let&apos;s suppose that a class name is added or removed from the CSS
             Module. In that case, the types must be manually updated, otherwise,
-            the type safety won’t work as expected.
+            the type safety won&apos;t work as expected.
           </p>
 
           <h2 className="text-2xl font-RubikExtraBold my-5">
@@ -162,8 +162,8 @@ function page() {
           </h2>
 
           <p>
-            In this case, the automation solution is straightforward. We’ll
-            generate the types automatically instead of manually, and we’ll
+            In this case, the automation solution is straightforward. We&apos;ll
+            generate the types automatically instead of manually, and we&apos;ll
             provide a script to verify that the generated types are up-to-date
             to avoid incorrect CSS Module typings leaking into the compilation
             step.
@@ -173,7 +173,7 @@ function page() {
 
           <p>
             Working within the TypeScript ecosystem has great potential, but,
-            when leaning too much on manual processes, it’s easy to blow trust
+            when leaning too much on manual processes, it&apos;s easy to blow trust
             in the type-system or generate unnecessary friction. CSS Modules are
             great, and with a little bit of extra configuration, its easy to add
             type safety to the generated classes. You should automate the boring

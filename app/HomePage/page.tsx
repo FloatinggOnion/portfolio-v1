@@ -28,12 +28,12 @@ function Homepage() {
 
             <div>
               <h1 className="text-2xl font-RubikMedium text-neutral-300">
-                Semicolon,{" "}
+                Autodidact,{" "}
                 <span className="text-sm text-neutral-400">A Dev Blog</span>
               </h1>
               <p className="max-w-sm text-neutral-400 text-sm">
-                I design and code beautifully simple things, and <br />{" "}
-                occasionally i write about them
+                I learn about and build slightly complex things, and <br />{" "}
+                occasionally i write about them.
               </p>
             </div>
           </div>
@@ -52,9 +52,9 @@ function Homepage() {
                     alt=""
                   />
                   <div>
-                    <span className="text-sm">July 22, 2023</span>
+                    <span className="text-sm">March 22, 2024</span>
                     <h2 className="text-sm font-RubikMedium">
-                      Smooth Animation with React and Framer Motion
+                      How To Write Type-Safe CSS Modules
                     </h2>
                   </div>
                 </div>
@@ -70,9 +70,9 @@ function Homepage() {
                   alt=""
                 />
                 <div>
-                  <span className="text-sm">July 22, 2023</span>
+                  <span className="text-sm">February 12, 2024</span>
                   <h2 className="text-sm font-RubikMedium">
-                    Smooth Animation with React and Framer Motion
+                    Building A RAG Application with React, FastAPI and Google Gemini
                   </h2>
                 </div>
               </div>
@@ -87,9 +87,9 @@ function Homepage() {
                   alt=""
                 />
                 <div>
-                  <span className="text-sm">July 22, 2023</span>
+                  <span className="text-sm">January 2, 2024</span>
                   <h2 className="text-sm font-RubikMedium">
-                    Smooth Animation with React and Framer Motion
+                    New Years Resolutions: Pixels vs Vectors
                   </h2>
                 </div>
               </div>
@@ -98,7 +98,7 @@ function Homepage() {
 
           {/* without image */}
 
-          <div className="mt-6  bg-[#1C1C1C] rounded-lg text-neutral-400">
+          {/* <div className="mt-6  bg-[#1C1C1C] rounded-lg text-neutral-400">
             <div className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4">
               <div className="  flex items-center gap-x-3">
                 <div>
@@ -129,11 +129,11 @@ function Homepage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* With image */}
 
-          <div className=" mt-6  bg-[#1C1C1C] rounded-lg text-neutral-400">
+          {/* <div className=" mt-6  bg-[#1C1C1C] rounded-lg text-neutral-400">
             <div className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4">
               <div className="  flex items-center gap-x-3">
                 <Image
@@ -185,11 +185,11 @@ function Homepage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* without image */}
 
-          <div className="mt-6  bg-[#1C1C1C] rounded-lg text-neutral-400">
+          {/* <div className="mt-6  bg-[#1C1C1C] rounded-lg text-neutral-400">
             <div className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4">
               <div className="  flex items-center gap-x-3">
                 <div>
@@ -206,7 +206,7 @@ function Homepage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.div>

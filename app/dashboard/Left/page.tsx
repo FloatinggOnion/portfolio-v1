@@ -8,11 +8,12 @@ import {
   PiShapesThin,
   PiHouseLight,
 } from "react-icons/pi";
-import { SiAdobe } from "react-icons/si";
+import { SiAdobe, SiBox } from "react-icons/si";
 
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { LuBox } from "react-icons/lu";
 
 function Leftpage() {
   const [open, setOpen] = useState(false);
@@ -64,7 +65,7 @@ function Leftpage() {
                 width={1000}
                 height={1000}
                 className="w-28 h-28 rounded-full object-cover"
-                src="/black.jpeg"
+                src="/emo.webp"
                 alt=""
               />
               <div
@@ -80,30 +81,33 @@ function Leftpage() {
                 </div>
               )}
               <h1 className="font-RubikExtraBold text-xl  text-neutral-300 mt-3">
-                Joscript Brown
+                Jesse-Paul Osemeke
               </h1>
               <p className="text-xs font-RubikMedium text-neutral-300 mt-2">
-                contact@Joscriptbrown.dev 📧
+                jesseosems123@gmail.com 📧
               </p>
 
               <p className="text-xs font-RubikMedium text-neutral-300 mt-1">
-                JoscriptBrown.com 🌍
+                jesse-paul.me 🌍
               </p>
 
-              <div className="flex w-full   ">
-                <div className="flex gap-x-1  text-xs my-4">
+              <div className="flex w-full">
+                <div className="flex gap-x-1 text-xs my-4">
                   <p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
                     ReactJS
                   </p>
                   <p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
-                    Git
+                    ML
                   </p>
                   <p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
-                    NodeJS
+                    Django
                   </p>
-                  <p className=" bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold shrink-0 ">
-                    Framer Motion
+                  <p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
+                    FastAPI
                   </p>
+                  {/* <p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
+                    Machine Learning
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -121,7 +125,7 @@ function Leftpage() {
             </div>
           </div>
 
-          <form
+          {/* <form
             onSubmit={handleSubmit}
             className="bg-[#282828] p-1  rounded-md md:flex items-center  justify-between h-9 w-full hidden "
           >
@@ -138,20 +142,20 @@ function Leftpage() {
             >
               Subscribe
             </motion.button>
-          </form>
+          </form> */}
 
           <div className="w-full mt-5 text-neutral-300">
             <h2 className="font-RubikBold my-4">Bio</h2>
             <p className="text-[12px]  font-RubikRegular my-3">
-              The world of digital design and <br /> development is constantly
-              evolving and so <br /> has my role over the last 7 years.{" "}
+              The world of technology has constantly been evolving and I have
+              been evolving with it.
             </p>
 
             <div className="mt-6 flex justify-between text-sm">
               <div className="flex items-center gap-x-1">
                 <PiShapesThin />
                 <span className="text-xs font-RubikRegular">
-                  7 Years as a Developer
+                  4 Years as a Developer
                 </span>
               </div>
               <div className="flex items-center gap-x-1">
@@ -166,28 +170,28 @@ function Leftpage() {
               <h1 className="font-RubikRegular">Work History</h1>
               <div className="mt-7 flex  justify-between">
                 <div className="flex gap-x-3">
-                  <PiGoogleLogoThin className="text-xl" />
+                  <LuBox className="text-xl" />
                   <div className="-mt-1">
-                    <h3 className="text-sm font-RubikMedium">Sr. Developer</h3>
-                    <p className="text-[9px]">Google</p>
+                    <h3 className="text-sm font-RubikMedium">Backend Intern</h3>
+                    <p className="text-[9px]">InvestNaira</p>
                   </div>
                 </div>
                 <small className="text-[9px] text-neutral-300">
-                  January 2020 - Current
+                  March 2024 - Current
                 </small>
               </div>
               <div className="my-3 flex  justify-between">
                 <div className="flex gap-x-3">
-                  <SiAdobe className="text-xl" />
+                  <LuBox className="text-xl" />
                   <div className="-mt-1">
                     <h3 className="text-sm font-RubikMedium">
-                      Jr. Creative Dev
+                      Frontend Intern
                     </h3>
-                    <p className="text-[9px]">Adobe</p>
+                    <p className="text-[9px]">FlexiSAF Edusoft Ltd</p>
                   </div>
                 </div>
                 <small className="text-[9px] text-neutral-300">
-                  Sep 2016 - January 2020
+                  March 2024 - Current
                 </small>
               </div>
             </div>

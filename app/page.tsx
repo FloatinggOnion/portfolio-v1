@@ -8,20 +8,20 @@ function page() {
       <div className="p-5 fixed bottom-28 flex flex-col items-center justify-center mx-auto   w-full ">
         <div className="bg-neutral-600 rounded-full ">
           <Image
-            height={1000}
-            width={1000}
+            height={200}
+            width={200}
             className="object-cover w-fit"
-            src="/emo.png"
+            src="/emo.webp"
             alt=""
           />
         </div>
-        <h1 className="font-RubikExtraBold text-6xl text-center   my-9 btn-shine">
-          JoScript Portfolio
+        <h1 className="font-RubikExtraBold text-6xl text-center my-9 btn-shine">
+          Jesse-Paul Osemeke
         </h1>
 
         <p className="text-neutral-400 lg:max-w-lg text-center font-RubikRegular ">
-          All features are done and coded by Joscript, please use this template
-          with free mind, remember to subscribe and share our videos
+          I&apos;m an engineer with a passion for building scalable applications.
+          My interests range from web development to machine learning and even low level software development.
         </p>
       </div>
 
@@ -32,9 +32,11 @@ function page() {
               <PiHouseLight className="text-2xl" />
             </span>
           </Link>
-          <span>
-            <PiGithubLogoLight className="text-2xl" />
-          </span>
+          <Link href={'https://github.com/floatinggonion'}>
+            <span>
+              <PiGithubLogoLight className="text-2xl" />
+            </span>
+          </Link>
         </div>
       </div>
     </div>
