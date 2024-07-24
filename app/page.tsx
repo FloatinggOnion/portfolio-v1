@@ -5,17 +5,17 @@ import { PiHouseLight, PiGithubLogoLight } from "react-icons/pi";
 function page() {
   return (
     <div className=" ">
-      <div className="p-5 fixed bottom-28 flex flex-col items-center justify-center mx-auto   w-full ">
+      <div className="p-5 fixed bottom-28 flex flex-col items-center justify-center mx-auto w-full ">
         <div className="bg-neutral-600 rounded-full ">
           <Image
-            height={200}
-            width={200}
+            height={150}
+            width={150}
             className="object-cover w-fit"
             src="/emo.webp"
             alt=""
           />
         </div>
-        <h1 className="font-RubikExtraBold text-6xl text-center my-9 btn-shine">
+        <h1 className="font-RubikExtraBold text-6xl text-center my-6 btn-shine">
           Jesse-Paul Osemeke
         </h1>
 
