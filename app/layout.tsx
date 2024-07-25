@@ -4,8 +4,8 @@ import Dashboard from "@/app/dashboard/layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Timilehin Owolabi's Portfolio",
-	description: "Robotics Software Engineer",
+	title: "Jesse-Paul Osemeke's Portfolio",
+	description: "Jesse-Paul Osemeke is an engineer with a passion for building scalable applications.",
 };
 
 export default function RootLayout({ children }) {
