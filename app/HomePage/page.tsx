@@ -33,7 +33,7 @@ function Homepage() {
               </h1>
               <p className="max-w-sm text-neutral-400 text-sm">
                 I learn about and build slightly complex things, and <br />{" "}
-                occasionally i write about them.
+                occasionally I write about them.
               </p>
             </div>
           </div>
@@ -41,7 +41,7 @@ function Homepage() {
           <div className="border border-neutral-700 my-5" />
 
           <div className="  bg-[#1C1C1C] rounded-lg text-neutral-400">
-            <Link href={"/dashboard/djdj"}>
+            <Link href={"/blog/djdj"}>
               <div className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4">
                 <div className="  flex items-center gap-x-3">
                   <Image

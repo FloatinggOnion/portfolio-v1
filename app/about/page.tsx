@@ -1,7 +1,7 @@
 import React from "react";
 import HomePage from "@/app/HomePage/page";
 
-function Dashboard() {
+function About() {
   return (
     <div className="">
       <HomePage />
@@ -9,4 +9,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default About;

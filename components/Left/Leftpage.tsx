@@ -7,6 +7,7 @@ import {
   PiMagicWandThin,
   PiShapesThin,
   PiHouseLight,
+  PiToolboxThin,
 } from "react-icons/pi";
 import { SiAdobe, SiBox } from "react-icons/si";
 
@@ -14,12 +15,15 @@ import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { LuBox } from "react-icons/lu";
+import { usePathname } from "next/navigation";
 
 function Leftpage() {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
 
   const controls = useAnimation();
+
+  const pathName = usePathname();
 
   const handleChange = (e) => {
     setEmail(e.target.value);
@@ -83,13 +87,17 @@ function Leftpage() {
               <h1 className="font-RubikExtraBold text-xl  text-neutral-300 mt-3">
                 Jesse-Paul Osemeke
               </h1>
-              <p className="text-xs font-RubikMedium text-neutral-300 mt-2">
-                jesseosems123@gmail.com 📧
-              </p>
+              <Link href={"mailto:jesseosems123@gmail.com"}>
+                <p className="text-xs font-RubikMedium text-neutral-300 mt-2">
+                  jesseosems123@gmail.com 📧
+                </p>
+              </Link>
 
-              <p className="text-xs font-RubikMedium text-neutral-300 mt-1">
-                jesse-paul.me 🌍
-              </p>
+              <Link href={"/"}>
+                <p className="text-xs font-RubikMedium text-neutral-300 mt-1">
+                  jesse-paul.me 🌍
+                </p>
+              </Link>
 
               <div className="flex w-full">
                 <div className="flex gap-x-1 text-xs my-4">
@@ -120,7 +128,18 @@ function Leftpage() {
               </Link>
 
               <div className="bg-neutral-700/50 h-7 w-7 rounded-full flex items-center justify-center">
-                <PiBookOpenTextLight className="text-neutral-100" />
+                {
+                  pathName === "/about" ? (
+                    <Link href={"/projects"}>
+                      <PiToolboxThin className="text-neutral-100" />
+                    </Link>
+                  ) : (
+                    <Link href={"/about"}>
+                      <PiBookOpenTextLight className="text-neutral-100" />
+                    </Link>
+                  )
+
+                }
               </div>
             </div>
           </div>
