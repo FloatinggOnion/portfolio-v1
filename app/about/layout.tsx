@@ -7,12 +7,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="">
         <Theming>
-          <div className="max-w-[78rem] mx-auto ">
-            <div className=" gap-4 flex md:mt-5    flex-col md:flex-row  ">
-              <Left />
+          <div className="max-w-[78rem] mx-auto">
+            <div className="gap-4 flex md:mt-5 flex-col md:flex-row justify-center">
+              {/* <Left /> */}
 
               {children}
-              <Right />
+              {/* <Right /> */}
             </div>
           </div>
         </Theming>

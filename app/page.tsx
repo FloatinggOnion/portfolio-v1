@@ -8,14 +8,16 @@ import {
 	PiToolboxLight,
 	PiHeartBreakThin,
 	PiHeartThin,
+	PiPersonThin,
+	PiBookOpen,
 } from "react-icons/pi";
-import { Tooltip, Button } from "@nextui-org/react";
+import { Tooltip, Button, Divider } from "@nextui-org/react";
 import { motion } from "framer-motion";
 
 function page() {
 	return (
 		<div className=" ">
-			<div className="p-5 fixed bottom-24 flex flex-col items-center justify-center mx-auto w-full ">
+			<div className="p-5 fixed bottom-32 flex flex-col items-center justify-center mx-auto w-full ">
 				<motion.div
 					initial={{ opacity: 0, y: -15 }}
 					animate={{
@@ -50,7 +52,7 @@ function page() {
 			</div>
 
 			<div className=" flex justify-center">
-				<div className="fixed bottom-7 flex border border-neutral-600 rounded-lg p-2 gap-x-5 text-neutral-500">
+				<div className="fixed bottom-7 flex items-center border border-neutral-600 rounded-lg p-2 gap-x-5 text-neutral-500">
 					<Tooltip
 						content="About"
 						placement="left"
@@ -58,20 +60,35 @@ function page() {
 						className="text-sm text-neutral-400 bg-neutral-700 px-1 rounded-sm font-RubikMedium"
 					>
 						<Link href={"/about"}>
-							<span>
-								<PiHouseLight className="text-2xl" />
+							<span className="flex gap-2">
+								<PiPersonThin className="text-2xl" />
+								<p className="underline underline-offset-4 decoration-dashed">About Me</p>
 							</span>
 						</Link>
 					</Tooltip>
 					<Tooltip
-						content="Projects"
+						content="My Work"
 						placement="top"
 						delay={500}
 						className="text-sm text-neutral-400 bg-neutral-700 px-1 rounded-sm font-RubikMedium"
 					>
 						<Link href={"/projects"}>
-							<span>
+							<span className="flex gap-2">
 								<PiToolboxLight className="text-2xl" />
+								<p className="underline underline-offset-4 decoration-dashed">My Work</p>
+							</span>
+						</Link>
+					</Tooltip>
+					<Tooltip
+						content="My Blog"
+						placement="top"
+						delay={500}
+						className="text-sm text-neutral-400 bg-neutral-700 px-1 rounded-sm font-RubikMedium"
+					>
+						<Link href={"/blog"}>
+							<span className="flex gap-2">
+								<PiBookOpen className="text-2xl" />
+								<p className="underline underline-offset-4 decoration-dashed">My Blog</p>
 							</span>
 						</Link>
 					</Tooltip>
@@ -81,7 +98,7 @@ function page() {
 						delay={500}
 						className="text-sm text-neutral-400 bg-neutral-700 px-1 rounded-sm font-RubikMedium"
 					>
-						<Link href={"https://github.com/floatinggonion"}>
+						<Link href={"https://github.com/floatinggonion"} className="bg-neutral-800 p-1 rounded-lg">
 							<span>
 								<PiGithubLogoLight className="text-2xl" />
 							</span>

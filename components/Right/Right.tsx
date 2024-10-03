@@ -50,10 +50,10 @@ function Right() {
 
 						<div className="text-neutral-400">
 							<h1 className="font-RubikMedium text-neutral-200">
-								{pathName === "/about" ? (
+								{pathName === "/blog" ? (
 									<Link href={"/projects"} className="underline underline-offset-2">My Projects</Link>
 								) : (
-									<Link href={"/about"} className="underline underline-offset-2">My Blog</Link>
+									<Link href={"/blog"} className="underline underline-offset-2">My Blog</Link>
 								)}
 							</h1>
 							<div className="mt-6  bg-[#1C1C1C] rounded-lg text-neutral-400">
