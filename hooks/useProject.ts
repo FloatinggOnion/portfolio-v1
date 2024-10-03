@@ -11,7 +11,7 @@ const useProject = () => {
                     title,
 					description,
                     "slug": slug.current,
-                    skills,
+                    "skills": skills[]->title,
 					mainImage,
 					githubLink,
 					liveLink,

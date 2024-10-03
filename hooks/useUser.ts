@@ -10,7 +10,6 @@ const useUser = () => {
                 *[_type == "author"][0]{
                     name,
                     email,
-                    skills,
                     "bio1": bio[0].children[0].text,
 					"bio2": bio[1].children[0].text,
 					"slug": slug.current,

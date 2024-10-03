@@ -60,19 +60,21 @@ const Projects = (props: Props) => {
 									key={idx}
 									className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4 group"
 								>
-									<div className="  flex items-center gap-x-3">
-										<Image
-											width={1000}
-											height={1000}
-											className="w-24 md:w-72 h-24 md:32 object-cover rounded-md"
-											src={
-												urlFor(project?.mainImage)
-													.url()
-													.toString() || "/pic.jpg"
-											}
-											alt=""
-										/>
-										<div className="flex flex-col gap-4">
+									<div className="flex items-center gap-x-3">
+										<div className="w-full">
+											<Image
+												width={1000}
+												height={1000}
+												className="w-24 md:w-72 h-24 md:32 object-cover rounded-md"
+												src={
+													urlFor(project?.mainImage)
+														.url()
+														.toString() || "/pic.jpg"
+												}
+												alt=""
+											/>
+										</div>
+										<div className="flex flex-col gap-2 w-full">
 											<div>
 												<h2 className="text-sm font-RubikMedium">
 													{project.title}
@@ -88,7 +90,7 @@ const Projects = (props: Props) => {
 															key={idx}
 															className="bg-neutral-800 group-hover:bg-neutral-700 transition-all duration-500 rounded-sm px-1"
 														>
-															{skill.title}
+															{skill}
 														</span>
 													)
 												)}
