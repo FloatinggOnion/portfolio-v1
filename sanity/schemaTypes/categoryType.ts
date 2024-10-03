@@ -5,6 +5,7 @@ export const categoryType = defineType({
   name: 'category',
   title: 'Category',
   type: 'document',
+  icon: TagIcon as any,
   fields: [
     defineField({
       name: 'title',
