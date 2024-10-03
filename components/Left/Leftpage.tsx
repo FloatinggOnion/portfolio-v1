@@ -18,9 +18,12 @@ import { LuBox } from "react-icons/lu";
 import { usePathname } from "next/navigation";
 import { Tooltip } from "@nextui-org/tooltip";
 
+import useUser from "@/hooks/useUser";
+
 function Leftpage() {
 	const [open, setOpen] = useState(false);
 	const [email, setEmail] = useState("");
+	const { user } = useUser();
 
 	const controls = useAnimation();
 
@@ -90,11 +93,15 @@ function Leftpage() {
                 </div>
               )} */}
 							<h1 className="font-RubikExtraBold text-xl  text-neutral-300 mt-3">
-								Jesse-Paul Osemeke
+								{user ? user.name : "Jesse-Paul Osemeke"}
+								{/* { user?.name } */}
 							</h1>
 							<Link href={"mailto:jesseosems123@gmail.com"}>
 								<p className="text-xs font-RubikMedium text-neutral-300 mt-2">
-									jesseosems123@gmail.com 📧
+									{user
+										? user.email
+										: "jesseosems123@gmail.com"}{" "}
+									📧
 								</p>
 							</Link>
 
@@ -104,25 +111,20 @@ function Leftpage() {
 								</p>
 							</Link>
 
-							<div className="flex w-full">
-								<div className="flex gap-x-1 text-xs my-4">
-									<p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
-										ReactJS
-									</p>
-									<p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
-										ML
-									</p>
-									<p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
-										Django
-									</p>
-									<p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
-										FastAPI
-									</p>
-									{/* <p className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold">
-                    Machine Learning
-                  </p> */}
+							{user && (
+								<div className="flex w-full">
+									<div className="flex gap-x-1 text-xs my-4">
+										{user.skills.map((skill, idx) => (
+											<p
+												key={idx}
+												className="bg-[#282828] text-neutral-300 rounded-md px-2 h-5 flex items-center justify-center text-[11px] font-RubikBold"
+											>
+												{skill}
+											</p>
+										))}
+									</div>
 								</div>
-							</div>
+							)}
 						</div>
 
 						<div className="flex gap-x-1 w-fit h-fit absolute right-2">
@@ -197,11 +199,29 @@ function Leftpage() {
 					<div className="w-full mt-5 text-neutral-300">
 						<h2 className="font-RubikBold my-4">Bio</h2>
 						<p className="text-[12px]  font-RubikRegular my-3">
-							The world of technology has constantly been evolving
+							{user
+								? user.bio
+								: `The world of technology has constantly been evolving
 							and I have been evolving with it. <br />I enjoy
 							learning about new technologies and building
-							projects to put these new concepts to practice. <br /><br />
-              Check out <Link href={"/projects"} className="underline underline-offset-2 hover:text-neutral-400">my work</Link>, or <Link href={"/blog"} className="underline underline-offset-2 hover:text-neutral-400">my blog</Link>.
+							projects to put these new concepts to practice.{" "}`}
+							<br />
+							<br />
+							Check out{" "}
+							<Link
+								href={"/projects"}
+								className="underline underline-offset-2 hover:text-neutral-400"
+							>
+								my work
+							</Link>
+							, or{" "}
+							<Link
+								href={"/blog"}
+								className="underline underline-offset-2 hover:text-neutral-400"
+							>
+								my blog
+							</Link>
+							.
 						</p>
 
 						{/* <div className="mt-6 flex justify-between text-sm">

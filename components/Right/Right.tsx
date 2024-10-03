@@ -3,7 +3,7 @@ import React from "react";
 import { PiGithubLogoLight } from "react-icons/pi";
 import { SiCss3, SiFramer } from "react-icons/si";
 
-import TestimonialTooltip from "@/app/TestimonialTooltip/page";
+import TestimonialTooltip from "@/components/TestimonialTooltip";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
