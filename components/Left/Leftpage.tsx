@@ -200,7 +200,7 @@ function Leftpage() {
 						<h2 className="font-RubikBold my-4">Bio</h2>
 						<p className="text-[12px]  font-RubikRegular my-3">
 							{user
-								? user.bio
+								? <>{user.bio1}<br />{user.bio2}</>
 								: `The world of technology has constantly been evolving
 							and I have been evolving with it. <br />I enjoy
 							learning about new technologies and building
@@ -272,7 +272,7 @@ function Leftpage() {
 									</div>
 								</div>
 								<small className="text-[9px] text-neutral-300">
-									March 2024 - Current
+									March 2024 - August 2024
 								</small>
 							</div>
 						</div>

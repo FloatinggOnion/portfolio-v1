@@ -34,7 +34,10 @@ export const authorType = defineType({
       type: 'array',
       of: [
         defineArrayMember({
-          type: 'string',
+          type: 'reference',
+		  to: {
+			type: 'skill',
+		  }
         }),
       ],
     }),

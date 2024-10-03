@@ -9,12 +9,17 @@ import {
 	PiCodeThin,
 	PiGithubLogo,
 	PiGithubLogoThin,
+	PiYoutubeLogoThin,
 } from "react-icons/pi";
 import { SiGithub } from "react-icons/si";
+import useProject from "@/hooks/useProject";
+import { urlFor } from "@/sanity/lib/image";
 
 type Props = {};
 
 const Projects = (props: Props) => {
+	const { projects } = useProject();
+
 	return (
 		<motion.div
 			initial={{ y: 100, opacity: 0 }}
@@ -49,80 +54,60 @@ const Projects = (props: Props) => {
 					<div className="border border-neutral-700 my-5" />
 
 					<div className="  bg-[#1C1C1C] rounded-lg text-neutral-400">
-						<div className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4 group">
-							<div className="  flex items-center gap-x-3">
-								<Image
-									width={1000}
-									height={1000}
-									className="w-24 md:w-72 h-24 md:32 object-cover rounded-md"
-									src="/pic.jpg"
-									alt=""
-								/>
-								<div className="flex flex-col gap-4">
-									{/* <span className="text-sm">March 22, 2024</span> */}
-									<h2 className="text-sm font-RubikMedium">
-										How To Write Type-Safe CSS Modules
-									</h2>
-									<div className="flex gap-4 text-xs font-bold">
-										<span className="bg-neutral-800 group-hover:bg-neutral-700 transition-all duration-500 rounded-sm px-1">
-											React
-										</span>
-										<span className="bg-neutral-800 group-hover:bg-neutral-700 transition-all duration-500 rounded-sm px-1">
-											React
-										</span>
-										<span className="bg-neutral-800 group-hover:bg-neutral-700 transition-all duration-500 rounded-sm px-1">
-											React
-										</span>
-										<span className="bg-neutral-800 group-hover:bg-neutral-700 transition-all duration-500 rounded-sm px-1">
-											React
-										</span>
+						{projects &&
+							projects.map((project, idx) => (
+								<div
+									key={idx}
+									className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4 group"
+								>
+									<div className="  flex items-center gap-x-3">
+										<Image
+											width={1000}
+											height={1000}
+											className="w-24 md:w-72 h-24 md:32 object-cover rounded-md"
+											src={
+												urlFor(project?.mainImage)
+													.url()
+													.toString() || "/pic.jpg"
+											}
+											alt=""
+										/>
+										<div className="flex flex-col gap-4">
+											<div>
+												<h2 className="text-sm font-RubikMedium">
+													{project.title}
+												</h2>
+												<p className="text-xs">
+													{project.description}
+												</p>
+											</div>
+											<div className="flex gap-4 text-xs font-bold">
+												{project.skills.map(
+													(skill, idx) => (
+														<span
+															key={idx}
+															className="bg-neutral-800 group-hover:bg-neutral-700 transition-all duration-500 rounded-sm px-1"
+														>
+															{skill.title}
+														</span>
+													)
+												)}
+											</div>
+											<div className="flex gap-3 text-base">
+												{project.githubLink && <Link href={project.githubLink}>
+													<PiGithubLogoThin />
+												</Link>}
+												{project.liveLink && <Link href={project.liveLink}>
+													<PiArrowUpRightThin />
+												</Link>}
+												{project.demoLink && <Link href={project.demoLink}>
+													<PiYoutubeLogoThin />
+												</Link>}
+											</div>
+										</div>
 									</div>
-									<div className="flex gap-3 text-base">
-										<PiGithubLogoThin />
-										<PiArrowUpRightThin />
-									</div>
 								</div>
-							</div>
-						</div>
-						<div className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4">
-							<div className="  flex items-center gap-x-3">
-								<Image
-									height={1000}
-									width={1000}
-									className="w-24 h-24 object-cover rounded-md"
-									src="/game.jpg"
-									alt=""
-								/>
-								<div>
-									<span className="text-sm">
-										February 12, 2024
-									</span>
-									<h2 className="text-sm font-RubikMedium">
-										Building A RAG Application with React,
-										FastAPI and Google Gemini
-									</h2>
-								</div>
-							</div>
-						</div>
-						<div className="hover:bg-neutral-800 duration-200 transition-all ease-in p-4">
-							<div className="  flex items-center gap-x-3">
-								<Image
-									height={1000}
-									width={1000}
-									className="w-24 h-24 object-cover rounded-md"
-									src="/scult.jpeg"
-									alt=""
-								/>
-								<div>
-									<span className="text-sm">
-										January 2, 2024
-									</span>
-									<h2 className="text-sm font-RubikMedium">
-										New Years Resolutions: Pixels vs Vectors
-									</h2>
-								</div>
-							</div>
-						</div>
+							))}
 					</div>
 				</div>
 			</div>

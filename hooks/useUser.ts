@@ -11,8 +11,10 @@ const useUser = () => {
                     name,
                     email,
                     skills,
-                    "bio": bio[0].children[0].text,
-                    "slug": slug.current
+                    "bio1": bio[0].children[0].text,
+					"bio2": bio[1].children[0].text,
+					"slug": slug.current,
+					"skills": skills[]->title
                 }
             `);
 			setUser(response);
