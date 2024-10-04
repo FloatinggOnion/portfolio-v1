@@ -10,14 +10,12 @@ const usePost = () => {
             const response = await client.fetch(`
                 *[_type == "post"]{
                     title,
-                    description,
                     "slug": slug.current,
-                    "skills": skills[]->title,
+                    author,
                     mainImage,
-                    githubLink,
-                    liveLink,
-                    demoLink,
-                    "bio": bio[0].children[0].text,
+                    categories,
+                    publishedAt,
+                    "body": body[0].children[0].text,
                 }
             `);
             setPosts(response);
@@ -25,6 +23,8 @@ const usePost = () => {
 
         getPosts();
     }, []);
+
+    return { posts }
 };
 
 export default usePost;

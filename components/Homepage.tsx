@@ -4,8 +4,12 @@ import React from "react";
 import { PiCodeThin } from "react-icons/pi";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import usePost from "@/hooks/usePost";
 
 function Homepage() {
+
+  const { posts } = usePost();
+
   return (
     <motion.div
       initial={{ y: 100, opacity: 0 }}

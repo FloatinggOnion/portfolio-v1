@@ -69,7 +69,8 @@ const Projects = (props: Props) => {
 												src={
 													urlFor(project?.mainImage)
 														.url()
-														.toString() || "/pic.jpg"
+														.toString() ||
+													"/pic.jpg"
 												}
 												alt=""
 											/>
@@ -96,15 +97,29 @@ const Projects = (props: Props) => {
 												)}
 											</div>
 											<div className="flex gap-3 text-base">
-												{project.githubLink && <Link href={project.githubLink}>
-													<PiGithubLogoThin />
-												</Link>}
-												{project.liveLink && <Link href={project.liveLink}>
-													<PiArrowUpRightThin />
-												</Link>}
-												{project.demoLink && <Link href={project.demoLink}>
-													<PiYoutubeLogoThin />
-												</Link>}
+												{project.githubLink && (
+													<Link
+														href={
+															project.githubLink
+														}
+													>
+														<PiGithubLogoThin />
+													</Link>
+												)}
+												{project.liveLink && (
+													<Link
+														href={project.liveLink}
+													>
+														<PiArrowUpRightThin />
+													</Link>
+												)}
+												{project.demoLink && (
+													<Link
+														href={project.demoLink}
+													>
+														<PiYoutubeLogoThin />
+													</Link>
+												)}
 											</div>
 										</div>
 									</div>

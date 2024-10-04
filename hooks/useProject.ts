@@ -16,7 +16,6 @@ const useProject = () => {
 					githubLink,
 					liveLink,
 					demoLink,
-                    "bio": bio[0].children[0].text,
                 }
             `);
 			setProjects(response);

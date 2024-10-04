@@ -6,6 +6,10 @@ export const resumeType = defineType({
     type: 'document',
     fields: [
         defineField({
+            name: 'title',
+            type: 'string',
+        }),
+        defineField({
             name: 'resume',
             title: 'Resume',
             type: 'file',

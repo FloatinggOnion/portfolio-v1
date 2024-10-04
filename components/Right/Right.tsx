@@ -8,9 +8,12 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import useResume from "@/hooks/useResume";
+import { urlFor } from "@/sanity/lib/image";
 
 function Right() {
 	const pathName = usePathname();
+	const { resume } = useResume();
 
 	return (
 		<motion.div
@@ -38,8 +41,8 @@ function Right() {
 							like to know more?
 						</p>
 						<a
-							download={true}
-							href="OSEMEKE JESSE-PAUL RESUME 24th July, 2024.pdf"
+							href={resume}
+							download
 						>
 							<button className="bg-[#696969] h-7 p-1 rounded-md text-xs w-full font-RubikMedium text-neutral-50 ">
 								Download
