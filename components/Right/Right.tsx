@@ -10,10 +10,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import useResume from "@/hooks/useResume";
 import { urlFor } from "@/sanity/lib/image";
+import usePost from "@/hooks/usePost";
+import useProject from "@/hooks/useProject";
 
 function Right() {
 	const pathName = usePathname();
 	const { resume } = useResume();
+	const { projects } = useProject();
+	const { posts } = usePost();
 
 	return (
 		<motion.div
@@ -60,6 +64,15 @@ function Right() {
 								)}
 							</h1>
 							<div className="mt-6  bg-[#1C1C1C] rounded-lg text-neutral-400">
+								{
+									pathName === "/blog" ? (
+										{
+											projects[:4].map((project, idx) => (
+											
+											))
+										}
+									)
+								}
 								<div className="hover:bg-neutral-800 duration-200 transition-all ease-in rounded-md">
 									<div className="flex gap-x-3">
 										<div>
