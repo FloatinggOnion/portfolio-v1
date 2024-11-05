@@ -10,117 +10,89 @@ import {
 	PiHeartThin,
 	PiPersonThin,
 	PiBookOpen,
+	PiLinkedinLogoThin,
+	PiGithubLogoThin,
+	PiEnvelopeThin,
+	PiLinkedinLogo,
+	PiGithubLogo,
+	PiEnvelope,
+	PiLinkedinLogoFill,
+	PiGithubLogoFill,
+	PiEnvelopeFill,
+	PiFilePdfThin,
+	PiFilePdf,
+	PiFile,
 } from "react-icons/pi";
-import { Tooltip, Button, Divider } from "@nextui-org/react";
+import { Tooltip, Button, Divider, image } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import SmallGallery from "@/components/SmallGallery";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Articles from "@/components/Articles";
 
 function page() {
+
+	const images = [
+		{ src: "/me_pic.jpg", alt: "me" },
+		{ src: "/stuff.jpg", alt: "me" },
+		{ src: "/game.jpg", alt: "me" },
+		{ src: "/me_pic.jpg", alt: "me" },
+	]
+
 	return (
-		<div className=" ">
-			<div className="p-5 fixed bottom-32 flex flex-col items-center justify-center mx-auto w-full ">
-				<motion.div
-					initial={{ opacity: 0, y: -15 }}
-					animate={{
-						opacity: 1,
-						y: 0,
-						transition: {
-							duration: 0.5,
-							delay: 0.9,
-							type: "spring",
-							stiffness: 200,
-						},
-					}}
-					className="bg-neutral-600 rounded-full "
-				>
+		<div className="">
+			{/* hero section */}
+			<div className="mt-12 flex gap-5">
+				<div className="w-[400px] h-[200px]">
 					<Image
-						height={150}
-						width={150}
-						className="object-cover w-fit"
-						src="/emo.webp"
-						alt=""
+						src={"/me_pic.jpg"}
+						width={100}
+						height={50}
+						alt="image"
+						className="rounded-xl object-cover w-full h-full"
 					/>
-				</motion.div>
-				<h1 className="font-RubikExtraBold text-6xl text-center my-6 btn-shine">
-					Jesse-Paul Osemeke
-				</h1>
-
-				<p className="text-neutral-400 lg:max-w-lg text-center font-RubikRegular ">
-					I&apos;m an engineer with a passion for building scalable
-					applications. My interests range from web development to
-					machine learning and even low level software development.
-				</p>
-			</div>
-
-			<div className=" flex justify-center">
-				<div className="fixed bottom-7 flex items-center border border-neutral-600 rounded-lg p-2 gap-x-5 text-neutral-500">
-					<Tooltip
-						content="About"
-						placement="left"
-						delay={500}
-						className="text-sm text-neutral-400 bg-neutral-700 px-1 rounded-sm font-RubikMedium"
-					>
-						<Link href={"/about"}>
-							<span className="flex gap-2">
-								<PiPersonThin className="text-2xl" />
-								<p className="underline underline-offset-4 decoration-dashed">About Me</p>
-							</span>
-						</Link>
-					</Tooltip>
-					<Tooltip
-						content="My Work"
-						placement="top"
-						delay={500}
-						className="text-sm text-neutral-400 bg-neutral-700 px-1 rounded-sm font-RubikMedium"
-					>
-						<Link href={"/projects"}>
-							<span className="flex gap-2">
-								<PiToolboxLight className="text-2xl" />
-								<p className="underline underline-offset-4 decoration-dashed">My Work</p>
-							</span>
-						</Link>
-					</Tooltip>
-					<Tooltip
-						content="My Blog"
-						placement="top"
-						delay={500}
-						className="text-sm text-neutral-400 bg-neutral-700 px-1 rounded-sm font-RubikMedium"
-					>
-						<Link href={"/blog"}>
-							<span className="flex gap-2">
-								<PiBookOpen className="text-2xl" />
-								<p className="underline underline-offset-4 decoration-dashed">My Blog</p>
-							</span>
-						</Link>
-					</Tooltip>
-					<Tooltip
-						content="GitHub"
-						placement="right"
-						delay={500}
-						className="text-sm text-neutral-400 bg-neutral-700 px-1 rounded-sm font-RubikMedium"
-					>
-						<Link href={"https://github.com/floatinggonion"} className="bg-neutral-800 p-1 rounded-lg">
-							<span>
-								<PiGithubLogoLight className="text-2xl" />
-							</span>
-						</Link>
-					</Tooltip>
+				</div>
+				<div className="flex flex-col gap-4 justify-between w-3/5">
+					<h1 className="text-3xl font-extrabold uppercase border border-dashed border-black rounded-xl px-4">
+						Jesse-Paul Osemeke
+					</h1>
+					<p className="text-neutral-600 text-wrap text-justify">
+						I&apos;m an engineer with a passion for building
+						scalable applications. My interests range from web
+						development to machine learning and even low level
+						software development.
+					</p>
+					<div className="flex justify-between">
+						<div className="text-3xl flex gap-3 items-center">
+							<PiLinkedinLogo />
+							<PiGithubLogo />
+							<PiEnvelope />
+						</div>
+						<div className="flex gap-2 items-end cursor-pointer">
+							<button className="underline underline-offset-2 text-lg">My Resume</button>
+							<PiFilePdf className="text-2xl" />
+						</div>
+					</div>
 				</div>
 			</div>
 
-			{/* credits */}
-			<div className="text-neutral-500 text-xs flex items-center bottom-3 fixed right-0">
-				<p>
-					Inspired by{" "}
-					<span className="inline-flex items-center gap-1">
-						<Link
-							className="underline"
-							href={"https://github.com/Joscriptt"}
-						>
-							JoScript
-						</Link>{" "}
-						<PiHeartThin />
-					</span>
-				</p>
+			{/* small gallery */}
+			<SmallGallery images={images} />
+
+			{/* Work experience and projects */}
+			<div className="flex flex-col lg:flex-row w-full justify-between lg:gap-24">
+				<div className="lg:w-1/2">
+					<Experience	/>
+				</div>
+				<div className="lg:w-1/2">
+					<Projects />
+				</div>
+			</div>
+
+			{/* Articles */}
+			<div>
+				<h1 className="text-3xl font-bold mb-4">Articles</h1>
+				<Articles />
 			</div>
 		</div>
 	);
