@@ -24,7 +24,7 @@ const Footer = (props: Props) => {
 						<li key={`${href}${label}`}>
 							<Link
 								href={href}
-								className={`text-lg font-semibold hover:text-zinc-600 transition-all duration-200`}
+								className={`text-base font-semibold hover:text-zinc-600 transition-all duration-200`}
 							>
 								{label}
 							</Link>
@@ -32,8 +32,8 @@ const Footer = (props: Props) => {
 					))}
 				</ul>
 
-				<span className="text-neutral-600 flex gap-2 items-center">
-					<p className="text-xl">&copy;</p> &apos;24 Jesse-Paul
+				<span className="text-neutral-600 flex gap-2 items-center text-sm">
+					<p className="text-lg">&copy;</p> &apos;24 Jesse-Paul
 					Osemeke. All rights reserved.
 				</span>
 			</div>

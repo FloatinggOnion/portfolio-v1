@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
 
 	return (
 		<html lang="en">
-			<body className={`${fira_code.className} bg-zinc-50`}>
+			<body className={`${fira_code.className} bg-zinc-50 text-black`}>
 				<Theming>
 					<div className="bg-white min-h-screen w-full md:w-[70%] rounded-lg mx-auto px-10 py-5">
 						<Navbar />
