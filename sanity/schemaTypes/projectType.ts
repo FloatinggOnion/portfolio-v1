@@ -81,6 +81,21 @@ export const projectType = defineType({
       name: 'body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'startDate',
+      title: 'Start Date',
+      type: 'date',
+    }),
+    defineField({
+      name: 'endDate',
+      title: 'End Date',
+      type: 'date',
+    }),
+    defineField({
+      name: 'isOngoing',
+      title: 'Is Ongoing',
+      type: 'boolean',
+    }),
   ],
   preview: {
     select: {

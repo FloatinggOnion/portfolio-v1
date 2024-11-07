@@ -3,34 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-	PiHouseLight,
-	PiGithubLogoLight,
-	PiToolboxLight,
-	PiHeartBreakThin,
-	PiHeartThin,
-	PiPersonThin,
-	PiBookOpen,
-	PiLinkedinLogoThin,
-	PiGithubLogoThin,
-	PiEnvelopeThin,
 	PiLinkedinLogo,
 	PiGithubLogo,
 	PiEnvelope,
-	PiLinkedinLogoFill,
-	PiGithubLogoFill,
-	PiEnvelopeFill,
-	PiFilePdfThin,
 	PiFilePdf,
-	PiFile,
 } from "react-icons/pi";
 import { Tooltip, Button, Divider, image } from "@nextui-org/react";
-import { motion } from "framer-motion";
 import SmallGallery from "@/components/SmallGallery";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Articles from "@/components/Articles";
+import useUser from "@/hooks/useUser";
+import useResume from "@/hooks/useResume";
 
-function page() {
+function Page() {
 
 	const images = [
 		{ src: "/me_pic.jpg", alt: "me" },
@@ -38,6 +24,12 @@ function page() {
 		{ src: "/game.jpg", alt: "me" },
 		{ src: "/me_pic.jpg", alt: "me" },
 	]
+
+	const user = useUser();
+	console.log(user.user);
+
+	const resume = useResume();
+	
 
 	return (
 		<div className="">
@@ -54,7 +46,7 @@ function page() {
 				</div>
 				<div className="flex flex-col gap-4 justify-between w-3/5">
 					<h1 className="text-3xl font-extrabold uppercase border border-dashed border-black rounded-xl px-4">
-						Jesse-Paul Osemeke
+						{user.user?.name}
 					</h1>
 					<p className="text-neutral-600 text-wrap text-justify">
 						I&apos;m an engineer with a passion for building
@@ -64,12 +56,16 @@ function page() {
 					</p>
 					<div className="flex justify-between">
 						<div className="text-3xl flex gap-3 items-center">
-							<PiLinkedinLogo />
+							<Link href={""}>
+								<PiLinkedinLogo />
+							</Link>
 							<PiGithubLogo />
-							<PiEnvelope />
+							<Link href={`mailto:${user.user?.email}`}>
+								<PiEnvelope />
+							</Link>
 						</div>
 						<div className="flex gap-2 items-end cursor-pointer">
-							<button className="underline underline-offset-2 text-lg">My Resume</button>
+							<Link href={`${resume.resume}`} download={true} className="underline underline-offset-2 text-lg">My Resume</Link>
 							<PiFilePdf className="text-2xl" />
 						</div>
 					</div>
@@ -98,4 +94,4 @@ function page() {
 	);
 }
 
-export default page;
+export default Page;
