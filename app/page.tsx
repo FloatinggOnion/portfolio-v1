@@ -34,7 +34,7 @@ function Page() {
 	return (
 		<div className="">
 			{/* hero section */}
-			<div className="mt-12 flex gap-5">
+			<div className="mt-12 flex flex-col lg:flex-row gap-5">
 				<div className="w-[400px] h-[200px]">
 					<Image
 						src={"/me_pic.jpg"}
@@ -44,7 +44,7 @@ function Page() {
 						className="rounded-xl object-cover w-full h-full"
 					/>
 				</div>
-				<div className="flex flex-col gap-4 justify-between w-3/5">
+				<div className="flex flex-col gap-4 justify-between lg:w-3/5">
 					<h1 className="text-3xl font-extrabold uppercase border border-dashed border-black rounded-xl px-4">
 						{user.user?.name}
 					</h1>
