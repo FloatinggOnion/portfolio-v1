@@ -26,7 +26,6 @@ function Page() {
 	]
 
 	const user = useUser();
-	console.log(user.user);
 
 	const resume = useResume();
 	

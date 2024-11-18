@@ -1,34 +1,36 @@
 import React from "react";
+import formatDate from "@/sanity/lib/formatDate";
 
-type Props = {};
+interface XPTableProps {
+	companyName: string;
+	role: string;
+	startDate: string;
+	endDate?: string;
+	isCurrent: boolean;
+}
+
+type Props = {
+	experiences: XPTableProps[];
+};
 
 const XPTable = (props: Props) => {
 	return (
 		<div className="w-full flex flex-col">
-			<div className="w-full flex justify-between items-end my-4 hover:bg-neutral-50 transition-all duration-200 py-3 px-1">
-				<div>
-					<h3 className="font-semibold text-lg">Company Name</h3>
-					<p className="text-neutral-600">Role at company</p>
-				</div>
+			{props.experiences?.map((xp, idx) => (
+				<div
+					key={idx}
+					className="w-full flex justify-between items-end my-4 hover:bg-neutral-50 transition-all duration-200 py-3 px-1"
+				>
+					<div className="w-1/2">
+						<h3 className="font-semibold text-lg">
+							{xp.companyName}
+						</h3>
+						<p className="text-neutral-600 text-sm">{xp.role}</p>
+					</div>
 
-				<p className="text-neutral-600">2020 - present</p>
-			</div>
-			<div className="w-full flex justify-between items-end my-4 hover:bg-neutral-50 transition-all duration-200 py-3 px-1">
-				<div>
-					<h3 className="font-semibold text-lg">Company Name</h3>
-					<p className="text-neutral-600">Role at company</p>
+					<p className="text-neutral-600 text-sm w-1/2 text-end">{`${formatDate(xp.startDate)} - ${xp.isCurrent ? "present" : formatDate(xp.endDate)}`}</p>
 				</div>
-
-				<p className="text-neutral-600">2020 - present</p>
-			</div>
-			<div className="w-full flex justify-between items-end my-4 hover:bg-neutral-50 transition-all duration-200 py-3 px-1">
-				<div>
-					<h3 className="font-semibold text-lg">Company Name</h3>
-					<p className="text-neutral-600">Role at company</p>
-				</div>
-
-				<p className="text-neutral-600">2020 - present</p>
-			</div>
+			))}
 		</div>
 	);
 };
