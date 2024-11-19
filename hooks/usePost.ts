@@ -15,6 +15,7 @@ const usePost = () => {
                     mainImage,
                     categories,
                     publishedAt,
+                    excerpt,
                     "body": body[0].children[0].text,
                 }
             `);
