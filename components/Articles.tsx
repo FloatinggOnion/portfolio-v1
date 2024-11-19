@@ -11,7 +11,7 @@ const Articles = (props: Props) => {
 
 	return (
 		<div>
-			{homePosts.length >= 1 && <h1 className="text-3xl font-bold mb-4">Articles</h1>}
+			{homePosts?.length >= 1 && <h1 className="text-3xl font-bold mb-4">Articles</h1>}
 			<div className="flex flex-col lg:w-3/5">
 				{homePosts?.map((post, idx) => (
 					<ArticleTile key={idx} article={post} />
