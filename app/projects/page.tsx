@@ -35,7 +35,7 @@ const Projects = (props: Props) => {
 							className="hover:bg-neutral-50 duration-200 transition-all ease-in p-4 group"
 						>
 							<div className="flex items-center gap-x-3">
-								<div className="w-full">
+								<div className="lg:w-full">
 									<Image
 										width={1000}
 										height={1000}

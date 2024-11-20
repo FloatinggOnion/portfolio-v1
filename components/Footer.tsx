@@ -18,7 +18,7 @@ const Footer = (props: Props) => {
 	return (
 		<div className="flex flex-col gap-6 my-4">
 			<hr className="bg-neutral-600" />
-			<div className="flex justify-between">
+			<div className="flex flex-col lg:flex-row justify-between">
 				<ul className={`flex gap-5`}>
 					{links.map(({ href, label }) => (
 						<li key={`${href}${label}`}>

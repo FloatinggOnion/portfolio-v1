@@ -21,8 +21,8 @@ function Page() {
 	const images = [
 		{ src: "/me_pic.jpg", alt: "me" },
 		{ src: "/stuff.jpg", alt: "me" },
-		{ src: "/game.jpg", alt: "me" },
-		{ src: "/me_pic.jpg", alt: "me" },
+		{ src: "/Me2.jpg", alt: "me" },
+		{ src: "/Me.jpg", alt: "me" },
 	]
 
 	const user = useUser();
@@ -72,7 +72,9 @@ function Page() {
 			</div>
 
 			{/* small gallery */}
-			<SmallGallery images={images} />
+			<div className="w-full flex justify-center items-center">
+				<SmallGallery images={images} />
+			</div>
 
 			{/* Work experience and projects */}
 			<div className="flex flex-col lg:flex-row w-full justify-between lg:gap-24">
