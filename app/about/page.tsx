@@ -1,8 +1,17 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { PiGithubLogo, PiInstagramLogo, PiLinkedinLogo } from "react-icons/pi";
+import { PiGithubLogo, PiInstagramLogo, PiLinkedinLogo, PiTwitterLogo } from "react-icons/pi";
+import useUser from "@/hooks/useUser";
+import { PortableText } from "next-sanity";
+import Link from "next/link";
 
 function About() {
+
+	const { user } = useUser();
+	console.log(user?.socials);
+
 	return (
 		<div>
 			<div className="flex flex-col lg:flex-row mt-12">
@@ -18,24 +27,19 @@ function About() {
 						/>
 					</div>
 					<div className="text-2xl space-y-1">
-						<span className="flex gap-2 text-neutral-600 hover:text-black transition-all duration-200">
-							<PiInstagramLogo />
-							<p className="text-base font-semibold">
-								@floatinggonion
-							</p>
-						</span>
-						<span className="flex gap-2 text-neutral-600 hover:text-black transition-all duration-200">
-							<PiLinkedinLogo />
-							<p className="text-base font-semibold">
-								@jesse-paul_osemeke
-							</p>
-						</span>
-						<span className="flex gap-2 text-neutral-600 hover:text-black transition-all duration-200">
-							<PiGithubLogo />
-							<p className="text-base font-semibold">
-								@FloatinggOnion
-							</p>
-						</span>
+						{
+							user?.socials?.map((social, idx) => (
+								<span key={idx} className="flex gap-2 text-neutral-600 hover:text-black transition-all duration-200">
+									{social.platform === "instagram" && <PiInstagramLogo />}
+									{social.platform === "linkedin" && <PiLinkedinLogo />}
+									{social.platform === "github" && <PiGithubLogo />}
+									{social.platform === "twitter" && <PiTwitterLogo />}
+									<Link href={social.url} className="text-base font-semibold">
+										{`@${social.url.split("/").pop()}`}
+									</Link>
+								</span>
+							))
+						}
 					</div>
 				</div>
 
@@ -43,28 +47,8 @@ function About() {
 				<div className="lg:w-1/2">
 					<h1 className="text-3xl font-bold my-4">About Me</h1>
 
-					<div className="leading-loose space-y-4">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Voluptas quia aperiam, debitis, quis veniam
-							vitae nostrum tempore error nesciunt libero enim sit
-							beatae sunt dicta, sequi sapiente. Cupiditate,
-							rerum? Eligendi.
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Voluptas quia aperiam, debitis, quis veniam
-							vitae nostrum tempore error nesciunt libero enim sit
-							beatae sunt dicta, sequi sapiente. Cupiditate,
-							rerum? Eligendi.
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Voluptas quia aperiam, debitis, quis veniam
-							vitae nostrum tempore error nesciunt libero enim sit
-							beatae sunt dicta, sequi sapiente. Cupiditate,
-							rerum? Eligendi.
-						</p>
+					<div className="leading-loose space-y-4 text-sm text-neutral-600">
+						<PortableText value={user?.aboutMe} />
 					</div>
 				</div>
 			</div>
