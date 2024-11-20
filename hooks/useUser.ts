@@ -12,6 +12,8 @@ const useUser = () => {
                     email,
                     "bio1": bio[0].children[0].text,
 					"bio2": bio[1].children[0].text,
+					aboutMe,
+					socials,
 					"slug": slug.current,
 					"skills": skills[]->title
                 }

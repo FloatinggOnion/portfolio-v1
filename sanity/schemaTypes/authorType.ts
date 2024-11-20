@@ -42,7 +42,7 @@ export const authorType = defineType({
       ],
     }),
 		defineField({
-			name: "social",
+			name: "socials",
 			type: "array",
 			of: [
 				defineArrayMember({
@@ -71,6 +71,17 @@ export const authorType = defineType({
 		}),
 		defineField({
 			name: "bio",
+			type: "array",
+			of: [
+				defineArrayMember({
+					type: "block",
+					styles: [{ title: "Normal", value: "normal" }],
+					lists: [],
+				}),
+			],
+		}),
+		defineField({
+			name: "aboutMe",
 			type: "array",
 			of: [
 				defineArrayMember({

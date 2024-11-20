@@ -10,13 +10,17 @@ const useProject = () => {
                 *[_type == "project"]{
                     title,
 					description,
+					role,
                     "slug": slug.current,
                     "skills": skills[]->title,
 					mainImage,
 					githubLink,
 					liveLink,
 					demoLink,
-                }
+					startDate,
+					endDate,
+					isOngoing
+                } | order(endDate desc)
             `);
 			setProjects(response);
 		};
