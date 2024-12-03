@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { client, sanityFetch } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import formatDate from "@/sanity/lib/formatDate";
+import formatDate, { formatDateLong, formatTime } from "@/sanity/lib/formatDate";
 import { PortableText, SanityDocument } from "next-sanity";
 
 type Props = {
@@ -131,8 +131,8 @@ const Page = async ({ params: { slug } }: Props) => {
 					{/* publish date */}
 					<p className="text-sm text-gray-600">
 						Published on{" "}
-						{new Date(post?.publishedAt).toDateString()}{", "}
-						{new Date(post?.publishedAt).toLocaleTimeString()}
+						{formatDateLong(post?.publishedAt)}{", "}
+						{formatTime(post?.publishedAt)}
 					</p>
 
 					{/* category tags */}
