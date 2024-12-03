@@ -15,6 +15,54 @@ type Props = {
 	};
 };
 
+const PortableTextComponents = {
+	marks: {
+		highlight: ({ children }: { children: React.ReactNode }) => (
+			<span style={{ backgroundColor: "grey" }}>{children}</span>
+		),
+		underline: ({ children }: { children: React.ReactNode }) => (
+			<span
+				style={{
+					textDecoration: "underline",
+					textUnderlineOffset: "2px",
+				}}
+			>
+				{children}
+			</span>
+		),
+		strikethrough: ({ children }: { children: React.ReactNode }) => (
+			<span style={{ textDecoration: "line-through" }}>{children}</span>
+		),
+		code: ({ children }: { children: React.ReactNode }) => (
+			<code
+				style={{
+					backgroundColor: "#f4f4f4",
+					padding: "2px 4px",
+					borderRadius: "4px",
+					fontFamily: "monospace",
+				}}
+			>
+				{children}
+			</code>
+		),
+	},
+	block: {
+		blockquote: ({ children }: { children: React.ReactNode }) => (
+			<blockquote
+				style={{
+					borderLeft: "4px solid #ccc",
+					marginLeft: 0,
+					paddingLeft: "16px",
+					fontStyle: "italic",
+					color: "#555",
+				}}
+			>
+				{children}
+			</blockquote>
+		),
+	},
+};
+
 const Page = async ({ params: { slug } }: Props) => {
 	const BLOG_QUERY = `
 		*[_type == "post" && slug.current == "${slug}"][0]{
@@ -32,7 +80,6 @@ const Page = async ({ params: { slug } }: Props) => {
 	const post = await sanityFetch<SanityDocument>({
 		query: BLOG_QUERY,
 	});
-
 
 	if (!post) {
 		return (
@@ -60,16 +107,22 @@ const Page = async ({ params: { slug } }: Props) => {
 					<PiArrowLeft size={20} /> Back to Blog
 				</Link>
 
-				{post?.mainImage && (<div className="w-full h-[250px] rounded-lg">
-					<Image
-						src={urlFor(post.mainImage).width(800).height(600).quality(100).url()}
-						width={800}
-						height={700}
-						alt="article"
-						objectFit="cover"
-						className="w-full h-full rounded-lg"
-					/>
-				</div>)}
+				{post?.mainImage && (
+					<div className="w-full h-[250px] rounded-lg">
+						<Image
+							src={urlFor(post.mainImage)
+								.width(800)
+								.height(600)
+								.quality(100)
+								.url()}
+							width={800}
+							height={700}
+							alt="article"
+							objectFit="cover"
+							className="w-full h-full rounded-lg"
+						/>
+					</div>
+				)}
 
 				<div className="space-y-2 my-6">
 					{/* title */}
@@ -77,7 +130,8 @@ const Page = async ({ params: { slug } }: Props) => {
 
 					{/* publish date */}
 					<p className="text-sm text-gray-600">
-						Published on {new Date(post?.publishedAt).toDateString()}
+						Published on{" "}
+						{new Date(post?.publishedAt).toDateString()}
 					</p>
 
 					{/* category tags */}
@@ -96,7 +150,11 @@ const Page = async ({ params: { slug } }: Props) => {
 				<hr className="text-neutral-600" />
 
 				<div className="leading-loose space-y-4 text-sm text-neutral-600">
-					<PortableText value={post?.body} />
+					<PortableText
+						value={post?.body}
+						// @ts-ignore
+						components={PortableTextComponents}
+					/>
 				</div>
 			</div>
 		);
