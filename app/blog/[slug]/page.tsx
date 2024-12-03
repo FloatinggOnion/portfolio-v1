@@ -131,7 +131,8 @@ const Page = async ({ params: { slug } }: Props) => {
 					{/* publish date */}
 					<p className="text-sm text-gray-600">
 						Published on{" "}
-						{new Date(post?.publishedAt).toDateString()}
+						{new Date(post?.publishedAt).toDateString()}{", "}
+						{new Date(post?.publishedAt).toLocaleTimeString()}
 					</p>
 
 					{/* category tags */}
