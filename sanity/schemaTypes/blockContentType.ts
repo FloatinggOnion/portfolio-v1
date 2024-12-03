@@ -39,6 +39,10 @@ export const blockContentType = defineType({
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {title: 'Code', value: 'code'},
+          {title: 'Underline', value: 'underline'},
+          {title: 'Strike', value: 'strike-through'},
+          {title: 'Highlight', value: 'highlight'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -62,7 +66,7 @@ export const blockContentType = defineType({
     // as a block type.
     defineArrayMember({
       type: 'image',
-      icon: ImageIcon as any,
+      icon: ImageIcon as any  ,
       options: {hotspot: true},
       fields: [
         {
