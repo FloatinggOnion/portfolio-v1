@@ -11,9 +11,9 @@ const usePost = () => {
                 *[_type == "post"]{
                     title,
                     "slug": slug.current,
-                    author,
+                    "author": author->name,
                     mainImage,
-                    categories,
+                    "categories": categories[]->title,
                     publishedAt,
                     excerpt,
                     "body": body[0].children[0].text,

@@ -8,6 +8,7 @@ import Image from "next/image";
 import usePost from "@/hooks/usePost";
 import { urlFor } from "@/sanity/lib/image";
 import Articles from "@/components/Articles";
+import ArticleTile from "@/components/ArticleTile";
 
 const Posts = () => {
 	const { posts } = usePost();
@@ -99,7 +100,7 @@ const Posts = () => {
 						more
 					</p>
 				</div>
-				<div className="space-y-1">
+				{/* <div className="space-y-1">
 					<h3 className="text-sm font-semibold px-1">
 						Filter by category
 					</h3>
@@ -112,12 +113,14 @@ const Posts = () => {
 						<option value="robotics">Robotics</option>
 						<option value="backend">Backend</option>
 					</select>
-				</div>
+				</div> */}
 			</div>
 
 			<hr className="text-neutral-600" />
 
-			<Articles />
+			{posts && posts.map((post, idx) => (
+				<ArticleTile key={idx} article={post} />
+			))}
 		</div>
 	);
 };

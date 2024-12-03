@@ -31,9 +31,9 @@ const ArticleTile = ({ article }: Props) => {
 				/>
 			</div>
 			<div className="flex flex-col gap-2 ">
-				<h3 className="font-semibold hover:underline underline-offset-2 transition-all duration-200">
+				<Link href={`/blog/${article.slug}`} className="font-semibold hover:underline underline-offset-2 transition-all duration-200">
 					{ article.title? article.title : "20 years: Review, Repentance, Resolutions."}
-				</h3>
+				</Link>
 				<div className="flex gap-2">
 					{article.categories.map((cat, idx) => <span className="px-1 bg-neutral-200 rounded-md" key={idx}>{cat}</span>)}
 				</div>
