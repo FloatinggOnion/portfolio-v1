@@ -32,7 +32,6 @@ const Page = async ({ params: { slug } }: Props) => {
 	const post = await sanityFetch<SanityDocument>({
 		query: BLOG_QUERY,
 	});
-	console.log(post.title);
 
 
 	if (!post) {
