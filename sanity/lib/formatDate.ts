@@ -12,7 +12,7 @@ export const formatDateShort = (inputDate: string) => {
 }
 export const formatTime = (inputDate: string) => {
     const date = new Date(inputDate);
-    return date.toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' });
+    return date.toLocaleTimeString('default', { hour: 'numeric', minute: '2-digit' });
 }
 
 export default formatDate;
