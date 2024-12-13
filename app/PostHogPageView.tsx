@@ -21,6 +21,9 @@ const PostHogPageView = (props: Props) => {
 			posthog.capture("$pageview", {
 				$current_url: url,
 			});
+            posthog.capture("$pageleave", {
+                $current_url: url,
+            })
 		}
 	}, [pathname, searchParams, posthog]);
 
