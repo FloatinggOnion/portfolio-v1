@@ -7,6 +7,13 @@ type Props = {};
 
 const Projects = (props: Props) => {
 	const { projects } = useProject();
+	
+
+	// Handle loading state
+    if (!projects) {
+        return <div>Loading projects...</div>;
+    }
+
 	return (
 		<div className="h-[60vh] my-6 lg:my-12">
 			<h3 className="text-2xl font-bold my-4">Projects</h3>

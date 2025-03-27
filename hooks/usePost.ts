@@ -17,7 +17,7 @@ const usePost = () => {
                     publishedAt,
                     excerpt,
                     "body": body[0].children[0].text,
-                }
+                } | order(_createdAt desc)
             `);
             setPosts(response);
         };
