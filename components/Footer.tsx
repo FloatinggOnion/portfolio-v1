@@ -8,7 +8,7 @@ type Props = {};
 
 const links = [
 	{ href: "/about", label: "About" },
-	// { href: "/blog", label: "Blog" },
+	{ href: "/blog", label: "Blog" },
 	{ href: "/projects", label: "Projects" },
 ];
 
