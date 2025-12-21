@@ -1,24 +1,25 @@
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
-
 const useResume = () => {
-    const [resume, setResume] = useState(null);
+    const [resumes, setResumes] = useState([]);
 
     useEffect(() => {
-        const getResume = async () => {
+        const getResumes = async () => {
             const response = await client.fetch(`
-                *[_type == "resume"]{
-                    "resume": resume.asset->url
-                }[0]
+                *[_type == "resume"] | order(order asc) {
+                    title,
+                    type,
+                    "url": resume.asset->url
+                }
             `);
-            setResume(response.resume);
-        }
+            setResumes(response);
+        };
 
-        getResume();
+        getResumes();
     }, []);
 
-    return { resume };
+    return { resumes };
 };
 
 export default useResume;
