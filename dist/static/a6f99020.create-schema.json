@@ -46,6 +46,22 @@
             {
               "value": "em",
               "title": "Emphasis"
+            },
+            {
+              "value": "code",
+              "title": "Code"
+            },
+            {
+              "value": "underline",
+              "title": "Underline"
+            },
+            {
+              "value": "strike-through",
+              "title": "Strike"
+            },
+            {
+              "value": "highlight",
+              "title": "Highlight"
             }
           ]
         },
@@ -716,12 +732,43 @@
   {
     "fields": [
       {
+        "description": "e.g., \"Academic CV\", \"AI Engineer Resume\", \"Software Engineer Resume\"",
         "name": "title",
         "type": "string"
       },
       {
+        "options": {
+          "list": [
+            {
+              "title": "Academic CV",
+              "value": "academic"
+            },
+            {
+              "title": "AI Engineer",
+              "value": "ai-engineer"
+            },
+            {
+              "title": "Software Engineer",
+              "value": "swe"
+            }
+          ]
+        },
+        "name": "type",
+        "type": "string"
+      },
+      {
+        "options": {
+          "accept": ".pdf"
+        },
         "name": "resume",
-        "type": "file"
+        "type": "file",
+        "title": "Resume PDF"
+      },
+      {
+        "initialValue": 0,
+        "description": "Display order (lower numbers appear first)",
+        "name": "order",
+        "type": "number"
       }
     ],
     "name": "resume",
