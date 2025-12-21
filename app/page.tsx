@@ -96,7 +96,7 @@ function Page() {
 			</div> */}
 
             {/* Work experience and projects */}
-            <div className=" lg:mt-10 flex flex-col lg:flex-row w-full lg:justify-between lg:gap-24">
+            <div className="mt-10 flex flex-col lg:flex-row w-full lg:justify-between lg:gap-24">
                 <div className="lg:w-1/2">
                     <Experience />
                 </div>
