@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import {
     PiLinkedinLogo,
     PiGithubLogo,
@@ -16,6 +17,7 @@ import Articles from "@/components/Articles";
 import useUser from "@/hooks/useUser";
 import useResume from "@/hooks/useResume";
 import { urlFor } from "@/sanity/lib/image";
+import ResumeModal from "@/components/ResumeModal";
 
 function Page() {
     // const images = [
@@ -26,8 +28,8 @@ function Page() {
     // ]
 
     const user = useUser();
-
-    const resume = useResume();
+    const { resumes } = useResume();
+    const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
     return (
         <div className="">
@@ -68,19 +70,25 @@ function Page() {
                                 <PiEnvelope />
                             </Link>
                         </div>
-                        <div className="flex gap-2 items-end cursor-pointer">
-                            <Link
-                                href={`${resume.resume}`}
-                                download={true}
-                                className="underline underline-offset-2 text-lg"
+                        <div className="flex gap-2 items-end">
+                            <button
+                                onClick={() => setIsResumeModalOpen(true)}
+                                className="underline underline-offset-2 text-lg hover:text-neutral-600 transition-all duration-200 cursor-pointer"
                             >
                                 My Resume
-                            </Link>
+                            </button>
                             <PiFilePdf className="text-2xl" />
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Resume Modal */}
+            <ResumeModal
+                isOpen={isResumeModalOpen}
+                onClose={() => setIsResumeModalOpen(false)}
+                resumes={resumes}
+            />
 
             {/* small gallery */}
             {/* <div className="w-full flex justify-center items-center">
