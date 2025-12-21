@@ -1,7 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
-
 const usePost = () => {
     const [posts, setPosts] = useState(null);
 
@@ -17,7 +16,7 @@ const usePost = () => {
                     publishedAt,
                     excerpt,
                     "body": body[0].children[0].text,
-                }
+                } | order(_createdAt desc)
             `);
             setPosts(response);
         };
@@ -25,7 +24,7 @@ const usePost = () => {
         getPosts();
     }, []);
 
-    return { posts }
+    return { posts };
 };
 
 export default usePost;

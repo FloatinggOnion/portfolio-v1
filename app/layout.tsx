@@ -8,38 +8,29 @@ import { PHProvider } from "./providers";
 import dynamic from "next/dynamic";
 
 const fira_code = Fira_Code({
-	subsets: ["latin"],
-	weight: "400",
-	display: "swap",
+    subsets: ["latin"],
+    weight: "400",
+    display: "swap",
 });
 
 export const metadata: Metadata = {
-	title: "Jesse-Paul Osemeke's Portfolio",
-	description:
-		"Jesse-Paul Osemeke is an engineer with a passion for building scalable applications.",
+    title: "Jesse-Paul Osemeke's Portfolio",
+    description:
+        "Jesse-Paul Osemeke is an engineer with a passion for building scalable applications.",
 };
 
-const PostHogPageView = dynamic(() => import("./PostHogPageView"), {
-	ssr: false,
-});
-
 export default function RootLayout({ children }) {
-	return (
-		<html lang="en">
-			<PHProvider>
-				<body
-					className={`${fira_code.className} bg-zinc-50 text-black`}
-				>
-					<Theming>
-						<div className="bg-white min-h-screen w-full md:w-[70%] rounded-lg mx-auto px-10 py-5">
-							<Navbar />
-							<PostHogPageView />
-							{children}
-							<Footer />
-						</div>
-					</Theming>
-				</body>
-			</PHProvider>
-		</html>
-	);
+    return (
+        <html lang="en">
+            <body className={`${fira_code.className} bg-zinc-50 text-black`}>
+                <Theming>
+                    <div className="bg-white min-h-screen w-full md:w-[70%] rounded-lg mx-auto px-10 py-5 flex flex-col">
+                        <Navbar />
+                        <div className="flex-grow">{children}</div>
+                        <Footer />
+                    </div>
+                </Theming>
+            </body>
+        </html>
+    );
 }
