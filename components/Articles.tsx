@@ -9,9 +9,9 @@ const Articles = (props: Props) => {
     const { posts } = usePost();
     const homePosts = posts?.slice(0, 3);
 
-	if (!homePosts) {
-		return <div>Loading articles...</div>;
-	}
+    if (!homePosts) {
+        return <div>Loading articles...</div>;
+    }
 
     return (
         <div>

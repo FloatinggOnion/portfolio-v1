@@ -15,7 +15,7 @@ const Experience = (props: Props) => {
     }
 
     return (
-        <div className="h-[50vh] my-6 lg:my-12">
+        <div className="h-[50vh] lg:h-[50vh] my-6 lg:my-12">
             <h3 className="text-2xl font-bold my-4">Work Experience</h3>
             <XPTable experiences={homeXp} />
             {xp.length > 3 && (
