@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { PHProvider } from "./providers";
+import dynamic from "next/dynamic";
 
 const fira_code = Fira_Code({
     subsets: ["latin"],
