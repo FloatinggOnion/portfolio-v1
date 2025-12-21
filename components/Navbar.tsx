@@ -7,15 +7,9 @@ import { usePathname } from "next/navigation";
 type Props = {};
 
 const links = [
-<<<<<<< HEAD
     { href: "/about", label: "About" },
     { href: "/blog", label: "Blog" },
     { href: "/projects", label: "Projects" },
-=======
-	{ href: "/about", label: "About" },
-	{ href: "/blog", label: "Blog" },
-	{ href: "/projects", label: "Projects" },
->>>>>>> 099ecf24496b0f81c4f9ec5114231d347dbd67e7
 ];
 
 const Navbar = (props: Props) => {
