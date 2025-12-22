@@ -35,7 +35,7 @@ function Page() {
         <div className="">
             {/* hero section */}
             <div className="mt-12 flex flex-col lg:flex-row gap-5">
-                <div className="w-[400px] h-[200px]">
+                <div className="w-full max-w-[400px] h-[200px] mx-auto lg:mx-0">
                     {user.user?.image?.asset ? (
                         <Image
                             src={urlFor(user.user.image).url()}
@@ -96,11 +96,11 @@ function Page() {
 			</div> */}
 
             {/* Work experience and projects */}
-            <div className="mt-10 flex flex-col lg:flex-row w-full lg:justify-between lg:gap-24">
-                <div className="lg:w-1/2">
+            <div className="mt-10 flex flex-col lg:flex-row w-full gap-8 lg:gap-24">
+                <div className="w-full lg:w-1/2">
                     <Experience />
                 </div>
-                <div className="lg:w-1/2">
+                <div className="w-full lg:w-1/2">
                     <Projects />
                 </div>
             </div>
