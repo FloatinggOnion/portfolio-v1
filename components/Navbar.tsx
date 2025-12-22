@@ -16,14 +16,14 @@ const Navbar = (props: Props) => {
     const pathname = usePathname();
 
     return (
-        <div className="flex bg-white/35 backdrop-blur-md sticky top-10 gap-6 rounded-full py-1 mx-auto border border-neutral-400 w-fit px-2 items-center z-50">
+        <div className="flex bg-white/35 backdrop-blur-md sticky top-10 gap-3 md:gap-6 rounded-full py-1 mx-auto border border-neutral-400 w-fit px-2 items-center z-50 justify-center">
             <Link
                 href={"/"}
                 className="font-extrabold px-2 bg-black text-white rounded-full"
             >
                 JP
             </Link>
-            <ul className={`flex gap-5`}>
+            <ul className={`flex gap-3 md:gap-5`}>
                 {links.map(({ href, label }) => (
                     <li key={`${href}${label}`}>
                         <Link
