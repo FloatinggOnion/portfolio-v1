@@ -22,13 +22,21 @@ const ArticleTile = ({ article }: Props) => {
     return (
         <div className="flex items-start hover:bg-neutral-100 px-1 py-3 rounded-md my-4 space-x-0 md:space-x-3">
             <div className="hidden md:block h-full w-[50%] rounded-lg flex-shrink-0">
-                <Image
-                    src={urlFor(article.mainImage).url()}
-                    width={100}
-                    height={100}
-                    alt=""
-                    className="object-cover h-full w-full rounded-lg"
-                />
+                {article.mainImage?.asset ? (
+                    <Image
+                        src={urlFor(article.mainImage).url()}
+                        width={100}
+                        height={100}
+                        alt=""
+                        className="object-cover h-full w-full rounded-lg"
+                    />
+                ) : (
+                    <div className="w-full h-full rounded-lg border-2 border-dashed border-neutral-400 flex items-center justify-center p-4">
+                        <p className="text-neutral-400 text-xs text-center line-clamp-2">
+                            {article.title}
+                        </p>
+                    </div>
+                )}
             </div>
             <div className="flex flex-col gap-2 w-full">
                 <Link
