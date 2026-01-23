@@ -36,17 +36,23 @@ const Projects = (props: Props) => {
                         >
                             <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                                 <div className="w-full md:w-32 h-32 flex-shrink-0">
-                                    <Image
-                                        width={128}
-                                        height={128}
-                                        className="w-full h-full object-cover rounded-md"
-                                        src={
-                                            urlFor(project?.mainImage)
+                                    {project.mainImage?.asset ? (
+                                        <Image
+                                            width={128}
+                                            height={128}
+                                            className="w-full h-full object-cover rounded-md"
+                                            src={urlFor(project.mainImage)
                                                 .url()
-                                                .toString() || "/pic.jpg"
-                                        }
-                                        alt=""
-                                    />
+                                                .toString()}
+                                            alt=""
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full rounded-md border-2 border-dashed border-neutral-400 flex items-center justify-center p-2">
+                                            <p className="text-neutral-400 text-[10px] text-center line-clamp-3">
+                                                {project.title}
+                                            </p>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="flex flex-col gap-2 w-full">
                                     <div>

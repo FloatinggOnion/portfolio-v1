@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next"
 import { PHProvider } from "./providers";
 import dynamic from "next/dynamic";
 
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
                         <Footer />
                     </div>
                 </Theming>
+                <Analytics />
             </body>
         </html>
     );
