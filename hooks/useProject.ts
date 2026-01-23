@@ -1,13 +1,19 @@
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
-const useProject = () => {
-	const [projects, setProjects] = useState(null);
+const useProject = (page: number = 1, pageSize: number = 5) => {
+	const [projects, setProjects] = useState<any[] | null>(null);
+	const [totalCount, setTotalCount] = useState(0);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const getProjects = async () => {
-			const response = await client.fetch(`
-                *[_type == "project"]{
+			setIsLoading(true);
+			const start = (page - 1) * pageSize;
+			const end = start + pageSize;
+
+			const query = `{
+				"projects": *[_type == "project"] | order(publishedAt desc) [${start}...${end}] {
                     title,
 					description,
 					role,
@@ -19,16 +25,22 @@ const useProject = () => {
 					demoLink,
 					startDate,
 					endDate,
-					isOngoing
-                } | order(endDate desc)
-            `);
-			setProjects(response);
+					isOngoing,
+					publishedAt
+                },
+				"total": count(*[_type == "project"])
+			}`;
+
+			const response = await client.fetch(query);
+			setProjects(response.projects);
+			setTotalCount(response.total);
+			setIsLoading(false);
 		};
 
 		getProjects();
-	}, []);
+	}, [page, pageSize]);
 
-	return { projects };
+	return { projects, totalCount, isLoading };
 };
 
 export default useProject;

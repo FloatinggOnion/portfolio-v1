@@ -10,10 +10,15 @@ import { urlFor } from "@/sanity/lib/image";
 import ArticleTile from "@/components/ArticleTile";
 import { client } from "@/sanity/lib/client";
 
+import { Pagination, Spinner } from "@nextui-org/react";
+
 const Posts = () => {
-    const { posts } = usePost();
-    const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("all");
+    const [currentPage, setCurrentPage] = useState(1);
+    const pageSize = 5;
+
+    const { posts, totalCount, isLoading } = usePost(currentPage, pageSize, selectedCategory);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         const getCategories = async () => {
@@ -29,12 +34,12 @@ const Posts = () => {
         getCategories();
     }, []);
 
-    const filteredPosts =
-        selectedCategory === "all"
-            ? posts
-            : posts?.filter((post) =>
-                  post.categories?.includes(selectedCategory)
-              );
+    const totalPages = Math.ceil(totalCount / pageSize);
+
+    const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedCategory(e.target.value);
+        setCurrentPage(1);
+    };
 
     return (
         <div className="">
@@ -54,7 +59,7 @@ const Posts = () => {
                         name="category"
                         id="category"
                         value={selectedCategory}
-                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        onChange={handleCategoryChange}
                         className="bg-transparent border border-black p-1 rounded-md text-black focus:outline-none focus:border-black text-sm w-full"
                     >
                         <option value="all">All Categories</option>
@@ -70,10 +75,29 @@ const Posts = () => {
             <hr className="text-neutral-600" />
 
             <div className="flex flex-col lg:w-3/5">
-                {filteredPosts && filteredPosts.length > 0 ? (
-                    filteredPosts.map((post, idx) => (
-                        <ArticleTile key={idx} article={post} />
-                    ))
+                {isLoading ? (
+                    <div className="flex justify-center py-12">
+                        <Spinner color="default" />
+                    </div>
+                ) : posts && posts.length > 0 ? (
+                    <>
+                        {posts.map((post, idx) => (
+                            <ArticleTile key={idx} article={post} />
+                        ))}
+                        {totalPages > 1 && (
+                            <div className="flex justify-center mt-8 mb-12">
+                                <Pagination
+                                    total={totalPages}
+                                    initialPage={1}
+                                    page={currentPage}
+                                    onChange={(page) => setCurrentPage(page)}
+                                    color="default"
+                                    size="sm"
+                                    variant="flat"
+                                />
+                            </div>
+                        )}
+                    </>
                 ) : (
                     <div className="text-center py-12">
                         <p className="text-neutral-600">
