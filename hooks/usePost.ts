@@ -12,7 +12,7 @@ const usePost = (page: number = 1, pageSize: number = 5, category: string = "all
             const start = (page - 1) * pageSize;
             const end = start + pageSize;
             
-            const categoryFilter = category !== "all" ? `&& "${category}" in categories[]->title` : "";
+            const categoryFilter = category !== "all" ? `&& "${category}" in categories[]->slug.current` : "";
 
             const query = `{
                 "posts": *[_type == "post" ${categoryFilter}] | order(publishedAt desc) [${start}...${end}] {

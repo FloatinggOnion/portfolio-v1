@@ -31,6 +31,9 @@ function Page() {
     const { resumes } = useResume();
     const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
+    const linkedinUrl = user.user?.socials?.find((s: { platform: string; url: string }) => s.platform === "linkedin")?.url ?? "";
+    const githubUrl = user.user?.socials?.find((s: { platform: string; url: string }) => s.platform === "github")?.url ?? "";
+
     return (
         <div className="">
             {/* hero section */}
@@ -62,10 +65,12 @@ function Page() {
                     </p>
                     <div className="flex justify-between">
                         <div className="text-3xl flex gap-3 items-center">
-                            <Link href={""}>
+                            <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer">
                                 <PiLinkedinLogo />
                             </Link>
-                            <PiGithubLogo />
+                            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
+                                <PiGithubLogo />
+                            </Link>
                             <Link href={`mailto:${user.user?.email}`}>
                                 <PiEnvelope />
                             </Link>

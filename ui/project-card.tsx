@@ -18,7 +18,7 @@ const projectCard = (props: Props) => {
 				<Image
 					width={1000}
 					height={1000}
-					className="w-24 md:w-72 h-24 md:32 object-cover rounded-md"
+					className="w-24 md:w-72 h-24 md:h-32 object-cover rounded-md"
 					src={props.imageUrl}
 					alt=""
 				/>

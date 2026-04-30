@@ -21,7 +21,7 @@ type Props = {
 const ArticleTile = ({ article }: Props) => {
     return (
         <div className="flex items-start hover:bg-neutral-100 px-1 py-3 rounded-md my-4 space-x-0 md:space-x-3">
-            <div className="hidden md:block h-full w-[50%] rounded-lg flex-shrink-0">
+            <div className="hidden md:block h-24 w-24 rounded-lg flex-shrink-0">
                 {article.mainImage?.asset ? (
                     <Image
                         src={urlFor(article.mainImage).url()}

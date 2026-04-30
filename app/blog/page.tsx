@@ -18,7 +18,7 @@ const Posts = () => {
     const pageSize = 5;
 
     const { posts, totalCount, isLoading } = usePost(currentPage, pageSize, selectedCategory);
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState<{ title: string; slug: string }[]>([]);
 
     useEffect(() => {
         const getCategories = async () => {
@@ -64,7 +64,7 @@ const Posts = () => {
                     >
                         <option value="all">All Categories</option>
                         {categories?.map((cat, idx) => (
-                            <option key={idx} value={cat.title}>
+                            <option key={idx} value={cat.slug}>
                                 {cat.title}
                             </option>
                         ))}
