@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next"
 import { PHProvider } from "./providers";
-import dynamic from "next/dynamic";
+import React from "react";
 
 const fira_code = Fira_Code({
     subsets: ["latin"],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         "Jesse-Paul Osemeke is an engineer with a passion for building scalable applications.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <body className={`${fira_code.className} bg-zinc-50 text-black`}>
