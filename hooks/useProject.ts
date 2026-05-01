@@ -13,7 +13,7 @@ const useProject = (page: number = 1, pageSize: number = 5) => {
 			const end = start + pageSize;
 
 			const query = `{
-				"projects": *[_type == "project"] | order(isOngoing desc, startDate desc) [${start}...${end}] {
+				"projects": *[_type == "project"] | order(coalesce(isOngoing, false) desc, startDate desc) [${start}...${end}] {
                     title,
 					description,
 					role,
