@@ -14,7 +14,7 @@ const useExperience = () => {
                     startDate,
                     endDate,
                     isCurrent
-                } | order(isCurrent desc, startDate desc)
+                } | order(coalesce(isCurrent, false) desc, startDate desc)
             `);
             
             setXp(response);
