@@ -27,7 +27,9 @@ const PortableTextComponents = {
 			<span style={{ backgroundColor: "grey" }}>{children}</span>
 		),
 		underline: ({ children }: { children: React.ReactNode }) => (
-			<u>{children}</u>
+			<span style={{ textDecoration: "underline", textDecorationColor: "inherit" }}>
+				{children}
+			</span>
 		),
 		strikethrough: ({ children }: { children: React.ReactNode }) => (
 			<span style={{ textDecoration: "line-through" }}>{children}</span>
