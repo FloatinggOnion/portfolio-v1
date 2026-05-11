@@ -17,18 +17,17 @@ type Props = {
 
 const PortableTextComponents = {
 	marks: {
+		strong: ({ children }: { children: React.ReactNode }) => (
+			<strong>{children}</strong>
+		),
+		em: ({ children }: { children: React.ReactNode }) => (
+			<em>{children}</em>
+		),
 		highlight: ({ children }: { children: React.ReactNode }) => (
 			<span style={{ backgroundColor: "grey" }}>{children}</span>
 		),
 		underline: ({ children }: { children: React.ReactNode }) => (
-			<span
-				style={{
-					textDecoration: "underline",
-					textUnderlineOffset: "2px",
-				}}
-			>
-				{children}
-			</span>
+			<u>{children}</u>
 		),
 		strikethrough: ({ children }: { children: React.ReactNode }) => (
 			<span style={{ textDecoration: "line-through" }}>{children}</span>
