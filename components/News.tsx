@@ -49,7 +49,7 @@ const News = () => {
             <div className="space-y-2">
                 {news.map((item, idx) => (
                     <div key={idx} className="flex gap-2 text-sm text-neutral-600">
-                        <span className="font-medium text-neutral-800 whitespace-nowrap tabular-nums">
+                        <span className="font-bold text-neutral-800 whitespace-nowrap tabular-nums">
                             {item.publishedAt ? formatDate(item.publishedAt) : ''}
                             {item.publishedAt ? ':' : ''}
                         </span>

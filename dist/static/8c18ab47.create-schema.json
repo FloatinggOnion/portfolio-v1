@@ -799,5 +799,19 @@
     ],
     "name": "experience",
     "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "headline",
+        "type": "blockContent"
+      },
+      {
+        "name": "publishedAt",
+        "type": "date"
+      }
+    ],
+    "name": "newsItem",
+    "type": "document"
   }
 ]

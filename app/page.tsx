@@ -115,7 +115,7 @@ function Page() {
             <News />
 
             {/* Articles */}
-            <div>
+            <div className="mt-12">
                 <Articles />
             </div>
         </div>
