@@ -8,6 +8,7 @@ import { projectType } from "./projectType";
 import { skillType } from "./skillType";
 import { resumeType } from "./resumeType";
 import { experienceType } from "./experienceType";
+import { newsItemType } from "./newsItemType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
 	types: [
@@ -19,5 +20,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		skillType,
 		resumeType,
     experienceType,
+    newsItemType,
 	],
 };

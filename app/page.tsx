@@ -14,6 +14,7 @@ import { Tooltip, Button, Divider, image } from "@nextui-org/react";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Articles from "@/components/Articles";
+import News from "@/components/News";
 import useUser from "@/hooks/useUser";
 import useResume from "@/hooks/useResume";
 import { urlFor } from "@/sanity/lib/image";
@@ -109,6 +110,9 @@ function Page() {
                     <Projects />
                 </div>
             </div>
+
+            {/* News */}
+            <News />
 
             {/* Articles */}
             <div>
