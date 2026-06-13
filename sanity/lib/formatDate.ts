@@ -1,6 +1,6 @@
 const formatDate = (inputDate: string) => {
     const date = new Date(inputDate);
-    return date.toLocaleString('default', { month: 'long', year: 'numeric' });
+    return date.toLocaleString('default', { month: 'short', year: 'numeric' });
 }
 export const formatDateLong = (inputDate: string) => {
     const date = new Date(inputDate);
