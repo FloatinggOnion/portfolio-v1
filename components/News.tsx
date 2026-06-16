@@ -30,12 +30,22 @@ const PortableTextComponents = {
             <span>{children}</span>
         ),
     },
-    list: ({ children }: { children: React.ReactNode }) => (
-        <ul className="list-disc list-inside ml-2">{children}</ul>
-    ),
-    listItem: ({ children }: { children: React.ReactNode }) => (
-        <li>{children}</li>
-    ),
+    list: {
+        bullet: ({ children }: { children: React.ReactNode }) => (
+            <ul className="list-disc list-inside ml-2">{children}</ul>
+        ),
+        number: ({ children }: { children: React.ReactNode }) => (
+            <ol className="list-decimal list-inside ml-2">{children}</ol>
+        ),
+    },
+    listItem: {
+        bullet: ({ children }: { children: React.ReactNode }) => (
+            <li>{children}</li>
+        ),
+        number: ({ children }: { children: React.ReactNode }) => (
+            <li>{children}</li>
+        ),
+    },
 };
 
 const News = () => {
