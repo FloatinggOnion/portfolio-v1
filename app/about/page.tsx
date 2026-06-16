@@ -10,10 +10,42 @@ import {
 } from "react-icons/pi";
 import useUser from "@/hooks/useUser";
 import useExperience from "@/hooks/useExperience";
-import { PortableText } from "next-sanity";
+import { PortableText, PortableTextComponents } from "next-sanity";
 import Link from "next/link";
 import XPTable from "@/components/XPTable";
 import { urlFor } from "@/sanity/lib/image";
+
+const aboutMeComponents: PortableTextComponents = {
+    marks: {
+        strong: ({ children }) => <strong>{children}</strong>,
+        em: ({ children }) => <em>{children}</em>,
+        underline: ({ children }) => (
+            <span style={{ textDecoration: "underline" }}>{children}</span>
+        ),
+        link: ({ children, value }) => (
+            <a
+                href={value?.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-neutral-900 transition-all duration-200"
+            >
+                {children}
+            </a>
+        ),
+    },
+    list: {
+        bullet: ({ children }) => (
+            <ul className="list-disc list-outside ml-5 space-y-1 my-2">{children}</ul>
+        ),
+        number: ({ children }) => (
+            <ol className="list-decimal list-outside ml-5 space-y-1 my-2">{children}</ol>
+        ),
+    },
+    listItem: {
+        bullet: ({ children }) => <li>{children}</li>,
+        number: ({ children }) => <li>{children}</li>,
+    },
+};
 
 function About() {
     const { user } = useUser();
@@ -75,7 +107,7 @@ function About() {
                     <h1 className="text-3xl font-bold my-4">About Me</h1>
 
                     <div className="leading-loose space-y-4 text-sm text-neutral-600 text-justify">
-                        <PortableText value={user?.aboutMe} />
+                        <PortableText value={user?.aboutMe} components={aboutMeComponents} />
                     </div>
                 </div>
             </div>

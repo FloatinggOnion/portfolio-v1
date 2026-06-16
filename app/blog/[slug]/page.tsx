@@ -62,6 +62,22 @@ const PortableTextComponents = {
 			</blockquote>
 		),
 	},
+	list: {
+		bullet: ({ children }: { children: React.ReactNode }) => (
+			<ul className="list-disc list-outside ml-5 space-y-1 my-2">{children}</ul>
+		),
+		number: ({ children }: { children: React.ReactNode }) => (
+			<ol className="list-decimal list-outside ml-5 space-y-1 my-2">{children}</ol>
+		),
+	},
+	listItem: {
+		bullet: ({ children }: { children: React.ReactNode }) => (
+			<li>{children}</li>
+		),
+		number: ({ children }: { children: React.ReactNode }) => (
+			<li>{children}</li>
+		),
+	},
 };
 
 const Page = async ({ params: { slug } }: Props) => {
