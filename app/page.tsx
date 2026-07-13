@@ -101,6 +101,9 @@ function Page() {
 				<SmallGallery images={images} />
 			</div> */}
 
+            {/* News */}
+            <News />
+
             {/* Work experience and projects */}
             <div className="mt-10 flex flex-col lg:flex-row w-full gap-8 lg:gap-24">
                 <div className="w-full lg:w-1/2">
@@ -110,9 +113,6 @@ function Page() {
                     <Projects />
                 </div>
             </div>
-
-            {/* News */}
-            <News />
 
             {/* Articles */}
             <div className="mt-12">
