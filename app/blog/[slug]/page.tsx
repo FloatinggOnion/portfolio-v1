@@ -15,7 +15,35 @@ type Props = {
 	};
 };
 
+const getImageDimensions = (assetRef: string) => {
+	const [, , dimensions] = assetRef.split("-");
+	const [width, height] = dimensions.split("x").map(Number);
+	return { width, height };
+};
+
 const PortableTextComponents = {
+	types: {
+		image: ({ value }: { value: any }) => {
+			if (!value?.asset?._ref) return null;
+			const { width, height } = getImageDimensions(value.asset._ref);
+			return (
+				<figure className="my-8 mx-auto flex max-w-xl flex-col items-center text-center">
+					<Image
+						src={urlFor(value).width(1200).quality(90).url()}
+						width={width}
+						height={height}
+						alt={value?.alt || ""}
+						className="h-auto w-full rounded-lg"
+					/>
+					{value?.alt && (
+						<figcaption className="mt-3 text-center text-xs text-neutral-500">
+							{value.alt}
+						</figcaption>
+					)}
+				</figure>
+			);
+		},
+	},
 	marks: {
 		strong: ({ children }: { children: React.ReactNode }) => (
 			<strong>{children}</strong>
