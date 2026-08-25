@@ -33,7 +33,7 @@ const Footer = (props: Props) => {
 				</ul>
 
 				<span className="text-neutral-600 flex gap-2 items-center text-sm">
-					<p className="text-lg">&copy;</p> &apos;24 Jesse-Paul
+					<p className="text-lg">&copy;</p> &apos;26 Jesse-Paul
 					Osemeke. All rights reserved.
 				</span>
 			</div>
