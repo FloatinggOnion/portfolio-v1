@@ -38,6 +38,9 @@
     "sanity": "^3.59.0",
     "styled-components": "^6.1.13"
   },
+  "resolutions": {
+    "katex/commander": "9.4.1"
+  },
   "devDependencies": {
     "@editorjs/image": "^2.8.1",
     "@types/react": "18.3.3",
