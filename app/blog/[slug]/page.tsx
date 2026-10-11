@@ -76,6 +76,24 @@ const PortableTextComponents = {
 		),
 	},
 	block: {
+		h1: ({ children }: { children: React.ReactNode }) => (
+			<h1 className="text-3xl font-bold text-neutral-900 leading-tight !mt-10 !mb-4">{children}</h1>
+		),
+		h2: ({ children }: { children: React.ReactNode }) => (
+			<h2 className="text-2xl font-bold text-neutral-900 leading-tight !mt-8 !mb-3">{children}</h2>
+		),
+		h3: ({ children }: { children: React.ReactNode }) => (
+			<h3 className="text-xl font-semibold text-neutral-900 leading-snug !mt-6 !mb-2">{children}</h3>
+		),
+		h4: ({ children }: { children: React.ReactNode }) => (
+			<h4 className="text-lg font-semibold text-neutral-800 leading-snug !mt-5 !mb-2">{children}</h4>
+		),
+		h5: ({ children }: { children: React.ReactNode }) => (
+			<h5 className="text-base font-semibold text-neutral-800 !mt-4 !mb-1">{children}</h5>
+		),
+		h6: ({ children }: { children: React.ReactNode }) => (
+			<h6 className="text-sm font-semibold uppercase tracking-wide text-neutral-700 !mt-4 !mb-1">{children}</h6>
+		),
 		blockquote: ({ children }: { children: React.ReactNode }) => (
 			<blockquote
 				style={{
