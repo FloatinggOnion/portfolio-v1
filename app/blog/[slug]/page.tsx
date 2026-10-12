@@ -8,6 +8,7 @@ import { client, sanityFetch } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import formatDate, { formatDateLong, formatTime } from "@/sanity/lib/formatDate";
 import { PortableText, SanityDocument } from "next-sanity";
+import CodeBlock from "@/ui/code-block";
 
 type Props = {
 	params: {
@@ -23,6 +24,16 @@ const getImageDimensions = (assetRef: string) => {
 
 const PortableTextComponents = {
 	types: {
+		code: ({ value }: { value: any }) => {
+			if (!value?.code) return null;
+			return (
+				<CodeBlock
+					code={value.code}
+					language={value.language}
+					filename={value.filename}
+				/>
+			);
+		},
 		image: ({ value }: { value: any }) => {
 			if (!value?.asset?._ref) return null;
 			const { width, height } = getImageDimensions(value.asset._ref);
